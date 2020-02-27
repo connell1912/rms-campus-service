@@ -19,32 +19,32 @@ import org.springframework.web.bind.annotation.RestController;
 public class RoomController {
     
     @Autowired
-    RoomDao rs;
+    RoomDao rd;
 
     @GetMapping("/{id}")
     public Room findById(@PathVariable("id") int id){
-        return rs.findById(id).get();
+        return rd.findById(id).get();
     }
     
     @PostMapping("/all")
     public Iterable<Room> getAllRooms() {
-        return rs.findAll();
+        return rd.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public String insert(@RequestBody Room r){
-        rs.save(r);
+        rd.save(r);
         return "Room has been added";
     }
 
     @PutMapping("/updated")
     public Room update(@RequestBody Room r){
-        return rs.save(r);
+        return rd.save(r);
     }
 
     @DeleteMapping("/deleted")
     public String delete(@RequestBody Room r) {
-        rs.delete(r);
+        rd.delete(r);
         return "Room has been deleted";
     }
 

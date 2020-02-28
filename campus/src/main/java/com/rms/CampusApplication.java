@@ -16,10 +16,10 @@ public class CampusApplication {
 		SpringApplication.run(CampusApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner(AddressDao rd) {
-		return args -> {rd.save(new Address("12702 Bruce B Downs Blvd", "Tampa", "Florida", "33612", "US"));};
-	}
+	// @Bean
+	// CommandLineRunner runner(AddressDao rd) {
+	// 	return args -> {rd.save(new Address("12702 Bruce B Downs Blvd", "Tampa", "Florida", "33612", "US"));};
+	// }
 
 	
 }

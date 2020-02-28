@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/amenity")
-@CrossOrigin(origins = "http:localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AmenityController {
 
     @Autowired

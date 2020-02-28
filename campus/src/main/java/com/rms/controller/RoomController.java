@@ -2,6 +2,7 @@ package com.rms.controller;
 
 import com.rms.dao.RoomDao;
 import com.rms.model.Room;
+import com.rms.service.RoomService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,34 +19,48 @@ import org.springframework.web.bind.annotation.RestController;
 public class RoomController {
     
     @Autowired
-    RoomDao rd;
+    RoomService rs;
+
+    @GetMapping("/all")
+    public Iterable<Room> getAllRoomes() {
+        return rs.findAll();
+    }
 
     @GetMapping("/{id}")
-    public Room findById(@PathVariable("id") int id){
-        return rd.findById(id).get();
-    }
-    
-    @PostMapping("/all")
-    public Iterable<Room> getAllRooms() {
-        return rd.findAll();
+    public Room findRoomById(@PathVariable("id") int id) {
+        return rs.findRoomById(id);
     }
 
-    @PostMapping
-    public String insert(@RequestBody Room r){
-        rd.save(r);
+    @PostMapping("/new")
+    public String insert(@RequestBody Room room) {
+        rs.save(room);
         return "Room has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody Room r){
-        rd.save(r);
+    public String update(@RequestBody Room room) {
+        rs.update(room);
         return "Room has been updated";
     }
 
+    // update by ID in case we need it
+    @PutMapping("/updatedbyid")
+    public String updateById(@RequestBody int id){
+        rs.updateById(id);
+        return "Room has been updated by its ID";
+    }
+
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody Room r) {
-        rd.delete(r);
+    public String delete(@RequestBody Room room) {
+        rs.delete(room);
         return "Room has been deleted";
+    }
+
+    // delete by ID in case we need it
+    @DeleteMapping("/deletedbyid")
+    public String deleteById(@RequestBody int id){
+        rs.deleteById(id);
+        return "Room has been deleted by ID";
     }
 
 }

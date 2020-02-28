@@ -2,6 +2,7 @@ package com.rms.model;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,24 +15,39 @@ import javax.persistence.Table;
 @Table
 public class Building {
 
+    // @SequenceGenerator(name="BuildingID_seq", sequenceName = "BuildingID_seq", initialValue = 1, allocationSize = 1)
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BuildingID_seq")
     @Id
-    @SequenceGenerator(name="BuildingID_seq", sequenceName = "BuildingID_seq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BuildingID_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String name;
+
+    @Column
     private String abbrName;
-    @OneToOne
-    private Address physicalAddress;
+
+    @Column
+    // @OneToOne
+    private String physicalAddress;
+
+    @Column
     private int trainingLead;
-    private Amenity[] amenities;
-    private Room[] rooms;
-    @OneToOne
-    private ResourceMetadata resourceMetadata;
+
+    @Column
+    private String amenities;
+
+    @Column
+    private String rooms;
+
+    // @Column
+    // @OneToOne
+    // private ResourceMetadata resourceMetadata;
 
     public Building() {
     }
 
-    public Building(int id, String name, String abbrName, Address physicalAddress, int trainingLead, Amenity[] amenities, Room[] rooms, ResourceMetadata resourceMetadata) {
+    public Building(int id, String name, String abbrName, String physicalAddress, int trainingLead, String amenities, String rooms) {
         this.id = id;
         this.name = name;
         this.abbrName = abbrName;
@@ -39,7 +55,7 @@ public class Building {
         this.trainingLead = trainingLead;
         this.amenities = amenities;
         this.rooms = rooms;
-        this.resourceMetadata = resourceMetadata;
+        // this.resourceMetadata = resourceMetadata;
     }
 
     public int getId() {
@@ -66,11 +82,11 @@ public class Building {
         this.abbrName = abbrName;
     }
 
-    public Address getPhysicalAddress() {
+    public String getPhysicalAddress() {
         return this.physicalAddress;
     }
 
-    public void setPhysicalAddress(Address physicalAddress) {
+    public void setPhysicalAddress(String physicalAddress) {
         this.physicalAddress = physicalAddress;
     }
 
@@ -82,29 +98,29 @@ public class Building {
         this.trainingLead = trainingLead;
     }
 
-    public Amenity[] getAmenities() {
+    public String getAmenities() {
         return this.amenities;
     }
 
-    public void setAmenities(Amenity[] amenities) {
+    public void setAmenities(String amenities) {
         this.amenities = amenities;
     }
 
-    public Room[] getRooms() {
+    public String getRooms() {
         return this.rooms;
     }
 
-    public void setRooms(Room[] rooms) {
+    public void setRooms(String rooms) {
         this.rooms = rooms;
     }
 
-    public ResourceMetadata getResourceMetadata() {
-        return this.resourceMetadata;
-    }
+    // public ResourceMetadata getResourceMetadata() {
+    //     return this.resourceMetadata;
+    // }
 
-    public void setResourceMetadata(ResourceMetadata resourceMetadata) {
-        this.resourceMetadata = resourceMetadata;
-    }
+    // public void setResourceMetadata(ResourceMetadata resourceMetadata) {
+    //     this.resourceMetadata = resourceMetadata;
+    // }
 
     public Building id(int id) {
         this.id = id;
@@ -121,7 +137,7 @@ public class Building {
         return this;
     }
 
-    public Building physicalAddress(Address physicalAddress) {
+    public Building physicalAddress(String physicalAddress) {
         this.physicalAddress = physicalAddress;
         return this;
     }
@@ -131,20 +147,21 @@ public class Building {
         return this;
     }
 
-    public Building amenities(Amenity[] amenities) {
+    public Building amenities(String amenities) {
         this.amenities = amenities;
         return this;
     }
 
-    public Building rooms(Room[] rooms) {
+    public Building rooms(String rooms) {
         this.rooms = rooms;
         return this;
     }
 
-    public Building resourceMetadata(ResourceMetadata resourceMetadata) {
-        this.resourceMetadata = resourceMetadata;
-        return this;
-    }
+    // public Building resourceMetadata(ResourceMetadata resourceMetadata) {
+    //     this.resourceMetadata = resourceMetadata;
+    //     return this;
+    // }
+
 
     @Override
     public boolean equals(Object o) {
@@ -154,13 +171,14 @@ public class Building {
             return false;
         }
         Building building = (Building) o;
-        return id == building.id && Objects.equals(name, building.name) && Objects.equals(abbrName, building.abbrName) && Objects.equals(physicalAddress, building.physicalAddress) && trainingLead == building.trainingLead && Objects.equals(amenities, building.amenities) && Objects.equals(rooms, building.rooms) && Objects.equals(resourceMetadata, building.resourceMetadata);
+        return id == building.id && Objects.equals(name, building.name) && Objects.equals(abbrName, building.abbrName) && Objects.equals(physicalAddress, building.physicalAddress) && trainingLead == building.trainingLead && Objects.equals(amenities, building.amenities) && Objects.equals(rooms, building.rooms);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, abbrName, physicalAddress, trainingLead, amenities, rooms, resourceMetadata);
+        return Objects.hash(id, name, abbrName, physicalAddress, trainingLead, amenities, rooms);
     }
+    
 
     @Override
     public String toString() {
@@ -172,7 +190,7 @@ public class Building {
             ", trainingLead='" + getTrainingLead() + "'" +
             ", amenities='" + getAmenities() + "'" +
             ", rooms='" + getRooms() + "'" +
-            ", resourceMetadata='" + getResourceMetadata() + "'" +
+            // ", resourceMetadata='" + getResourceMetadata() + "'" +
             "}";
     }
 

@@ -2,6 +2,7 @@ package com.rms.model;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,26 +15,45 @@ import javax.persistence.Table;
 @Table
 public class Campus{
 
+    // @SequenceGenerator(name = "CampID_seq", sequenceName = "CampID_seq", initialValue = 1, allocationSize = 1)
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CampID_seq")
     @Id
-    @SequenceGenerator(name = "CampID_seq", sequenceName = "CampID_seq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CampID_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String name;
+
+    @Column
     private String abbrName;
-    @OneToOne
-    private Address shippingAddress;
+
+    @Column
+    // @OneToOne
+    private String shippingAddress;
+
+    @Column
     private int trainingManagerId;
+
+    @Column
     private int stagingManagerId;
+
+    @Column
     private int hrLead;
-    private Building[] buildings;
+
+    @Column
+    private String buildings;
+
+    @Column
     private int[] corporateEmployees;
-    @OneToOne
-    private ResourceMetadata resourceMetadata;
+
+    // @Column
+    // @OneToOne
+    // private ResourceMetadata resourceMetadata;
 
     public Campus() {
     }
 
-    public Campus(int id, String name, String abbrName, Address shippingAddress, int trainingManagerId, int stagingManagerId, int hrLead, Building[] buildings, int[] corporateEmployees, ResourceMetadata resourceMetadata) {
+    public Campus(int id, String name, String abbrName, String shippingAddress, int trainingManagerId, int stagingManagerId, int hrLead, String buildings, int[] corporateEmployees) {
         this.id = id;
         this.name = name;
         this.abbrName = abbrName;
@@ -43,7 +63,7 @@ public class Campus{
         this.hrLead = hrLead;
         this.buildings = buildings;
         this.corporateEmployees = corporateEmployees;
-        this.resourceMetadata = resourceMetadata;
+        // this.resourceMetadata = resourceMetadata;
     }
 
     public int getId() {
@@ -70,11 +90,11 @@ public class Campus{
         this.abbrName = abbrName;
     }
 
-    public Address getShippingAddress() {
+    public String getShippingAddress() {
         return this.shippingAddress;
     }
 
-    public void setShippingAddress(Address shippingAddress) {
+    public void setShippingAddress(String shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
 
@@ -102,11 +122,11 @@ public class Campus{
         this.hrLead = hrLead;
     }
 
-    public Building[] getBuildings() {
+    public String getBuildings() {
         return this.buildings;
     }
 
-    public void setBuildings(Building[] buildings) {
+    public void setBuildings(String buildings) {
         this.buildings = buildings;
     }
 
@@ -118,13 +138,13 @@ public class Campus{
         this.corporateEmployees = corporateEmployees;
     }
 
-    public ResourceMetadata getResourceMetadata() {
-        return this.resourceMetadata;
-    }
+    // public ResourceMetadata getResourceMetadata() {
+    //     return this.resourceMetadata;
+    // }
 
-    public void setResourceMetadata(ResourceMetadata resourceMetadata) {
-        this.resourceMetadata = resourceMetadata;
-    }
+    // public void setResourceMetadata(ResourceMetadata resourceMetadata) {
+    //     this.resourceMetadata = resourceMetadata;
+    // }
 
     public Campus id(int id) {
         this.id = id;
@@ -141,7 +161,7 @@ public class Campus{
         return this;
     }
 
-    public Campus shippingAddress(Address shippingAddress) {
+    public Campus shippingAddress(String shippingAddress) {
         this.shippingAddress = shippingAddress;
         return this;
     }
@@ -161,7 +181,7 @@ public class Campus{
         return this;
     }
 
-    public Campus buildings(Building[] buildings) {
+    public Campus buildings(String buildings) {
         this.buildings = buildings;
         return this;
     }
@@ -171,10 +191,10 @@ public class Campus{
         return this;
     }
 
-    public Campus resourceMetadata(ResourceMetadata resourceMetadata) {
-        this.resourceMetadata = resourceMetadata;
-        return this;
-    }
+    // public Campus resourceMetadata(ResourceMetadata resourceMetadata) {
+    //     this.resourceMetadata = resourceMetadata;
+    //     return this;
+    // }
 
     @Override
     public boolean equals(Object o) {
@@ -184,13 +204,14 @@ public class Campus{
             return false;
         }
         Campus campus = (Campus) o;
-        return id == campus.id && Objects.equals(name, campus.name) && Objects.equals(abbrName, campus.abbrName) && Objects.equals(shippingAddress, campus.shippingAddress) && trainingManagerId == campus.trainingManagerId && stagingManagerId == campus.stagingManagerId && hrLead == campus.hrLead && Objects.equals(buildings, campus.buildings) && Objects.equals(corporateEmployees, campus.corporateEmployees) && Objects.equals(resourceMetadata, campus.resourceMetadata);
+        return id == campus.id && Objects.equals(name, campus.name) && Objects.equals(abbrName, campus.abbrName) && Objects.equals(shippingAddress, campus.shippingAddress) && trainingManagerId == campus.trainingManagerId && stagingManagerId == campus.stagingManagerId && hrLead == campus.hrLead && Objects.equals(buildings, campus.buildings) && Objects.equals(corporateEmployees, campus.corporateEmployees);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, abbrName, shippingAddress, trainingManagerId, stagingManagerId, hrLead, buildings, corporateEmployees, resourceMetadata);
+        return Objects.hash(id, name, abbrName, shippingAddress, trainingManagerId, stagingManagerId, hrLead, buildings, corporateEmployees);
     }
+    
 
     @Override
     public String toString() {
@@ -204,7 +225,7 @@ public class Campus{
             ", hrLead='" + getHrLead() + "'" +
             ", buildings='" + getBuildings() + "'" +
             ", corporateEmployees='" + getCorporateEmployees() + "'" +
-            ", resourceMetadata='" + getResourceMetadata() + "'" +
+            // ", resourceMetadata='" + getResourceMetadata() + "'" +
             "}";
     }
 

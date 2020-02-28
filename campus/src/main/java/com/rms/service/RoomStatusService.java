@@ -12,11 +12,35 @@ public class RoomStatusService {
     @Autowired
     RoomStatusDao rsd;
 
-    public void save(RoomStatus rms) {
-        rsd.save(rms);
+    public Iterable<RoomStatus> findAll(){
+        return rsd.findAll();
     }
 
-    public void delete(RoomStatus rms){
-        rsd.delete(rms);
+    public RoomStatus findRoomStatusById(int id){
+        return rsd.findById(id).get();
+    }
+
+    public void save(RoomStatus rs){
+        rsd.save(rs);
+    }
+
+    public void update(RoomStatus rs){
+        rsd.save(rs);
+    }
+
+    // update by ID in case we need it
+    public void updateById(int id){
+        RoomStatus rs = rsd.findById(id).get();
+        rsd.save(rs);
+    }
+
+    public void delete(RoomStatus rs){
+        rsd.delete(rs);
+    }
+
+    // delete by ID in case we need it
+    public void deleteById(int id){
+        RoomStatus rs = rsd.findById(id).get();
+        rsd.delete(rs);
     }
 }

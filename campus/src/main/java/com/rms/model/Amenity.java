@@ -2,6 +2,7 @@ package com.rms.model;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,17 +14,24 @@ import javax.persistence.Table;
 @Table
 public class Amenity {
 
+    // @SequenceGenerator(name = "AmenityID_seq", sequenceName = "AmenityID_seq",
+    // initialValue = 1, allocationSize = 1)
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
+    // "AmenityID_seq")
     @Id
-    @SequenceGenerator(name = "AmenityID_seq", sequenceName = "AmenityID_seq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AmenityID_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private AmenityType type;
-    private AmenityStatus status;
+
+    @Column
+    private String type;
+
+    @Column
+    private String status;
 
     public Amenity() {
     }
 
-    public Amenity(int id, AmenityType type, AmenityStatus status) {
+    public Amenity(int id, String type, String status) {
         this.id = id;
         this.type = type;
         this.status = status;
@@ -37,19 +45,19 @@ public class Amenity {
         this.id = id;
     }
 
-    public AmenityType getType() {
+    public String getType() {
         return this.type;
     }
 
-    public void setType(AmenityType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public AmenityStatus getStatus() {
+    public String getStatus() {
         return this.status;
     }
 
-    public void setStatus(AmenityStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -58,12 +66,12 @@ public class Amenity {
         return this;
     }
 
-    public Amenity type(AmenityType type) {
+    public Amenity type(String type) {
         this.type = type;
         return this;
     }
 
-    public Amenity status(AmenityStatus status) {
+    public Amenity status(String status) {
         this.status = status;
         return this;
     }
@@ -76,7 +84,7 @@ public class Amenity {
             return false;
         }
         Amenity amenity = (Amenity) o;
-        return id == amenity.id && Objects.equals(type, amenity.type) && Objects.equals(status, amenity.status);
+        return id == amenity.id;
     }
 
     @Override
@@ -86,13 +94,7 @@ public class Amenity {
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", type='" + getType() + "'" +
-            ", status='" + getStatus() + "'" +
-            "}";
+        return "{" + " id='" + getId() + "'" + ", type='" + getType() + "'" + ", status='" + getStatus() + "'" + "}";
     }
-
-   
 
 }

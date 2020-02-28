@@ -2,6 +2,7 @@ package com.rms.model;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,25 +15,39 @@ import javax.persistence.Table;
 @Table
 public class Room {
 
+    // @SequenceGenerator(name = "RoomID_seq", sequenceName = "RoomID_seq", initialValue = 1, allocationSize = 1)
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RoomID_seq")
     @Id
-    @SequenceGenerator(name = "RoomID_seq", sequenceName = "RoomID_seq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RoomID_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String roomNumber;
+
+    @Column
     private int maxOccupancy;
+
+    @Column
     private boolean isActive;
     
-    @OneToOne
-    private RoomStatus currentStatus;
+    @Column
+    // @OneToOne
+    private String currentStatus;
+
+    @Column
     private int batchId;
+
+    @Column
     private int[] workOrders;
-    @OneToOne
-    private ResourceMetadata resourceMetadata;
+
+    // @Column
+    // @OneToOne
+    // private ResourceMetadata resourceMetadata;
 
     public Room() {
     }
 
-    public Room(int id, String roomNumber, int maxOccupancy, boolean isActive, RoomStatus currentStatus, int batchId, int[] workOrders, ResourceMetadata resourceMetadata) {
+    public Room(int id, String roomNumber, int maxOccupancy, boolean isActive, String currentStatus, int batchId, int[] workOrders) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.maxOccupancy = maxOccupancy;
@@ -40,7 +55,16 @@ public class Room {
         this.currentStatus = currentStatus;
         this.batchId = batchId;
         this.workOrders = workOrders;
-        this.resourceMetadata = resourceMetadata;
+        // this.resourceMetadata = resourceMetadata;
+    }
+
+    public Room(String roomNumber, int maxOccupancy, boolean isActive, String currentStatus, int batchId, int[] workOrders) {
+        this.roomNumber = roomNumber;
+        this.maxOccupancy = maxOccupancy;
+        this.isActive = isActive;
+        this.currentStatus = currentStatus;
+        this.batchId = batchId;
+        this.workOrders = workOrders;
     }
 
     public int getId() {
@@ -79,11 +103,11 @@ public class Room {
         this.isActive = isActive;
     }
 
-    public RoomStatus getCurrentStatus() {
+    public String getCurrentStatus() {
         return this.currentStatus;
     }
 
-    public void setCurrentStatus(RoomStatus currentStatus) {
+    public void setCurrentStatus(String currentStatus) {
         this.currentStatus = currentStatus;
     }
 
@@ -103,13 +127,13 @@ public class Room {
         this.workOrders = workOrders;
     }
 
-    public ResourceMetadata getResourceMetadata() {
-        return this.resourceMetadata;
-    }
+    // public ResourceMetadata getResourceMetadata() {
+    //     return this.resourceMetadata;
+    // }
 
-    public void setResourceMetadata(ResourceMetadata resourceMetadata) {
-        this.resourceMetadata = resourceMetadata;
-    }
+    // public void setResourceMetadata(ResourceMetadata resourceMetadata) {
+    //     this.resourceMetadata = resourceMetadata;
+    // }
 
     public Room id(int id) {
         this.id = id;
@@ -131,7 +155,7 @@ public class Room {
         return this;
     }
 
-    public Room currentStatus(RoomStatus currentStatus) {
+    public Room currentStatus(String currentStatus) {
         this.currentStatus = currentStatus;
         return this;
     }
@@ -146,10 +170,10 @@ public class Room {
         return this;
     }
 
-    public Room resourceMetadata(ResourceMetadata resourceMetadata) {
-        this.resourceMetadata = resourceMetadata;
-        return this;
-    }
+    // public Room resourceMetadata(ResourceMetadata resourceMetadata) {
+    //     this.resourceMetadata = resourceMetadata;
+    //     return this;
+    // }
 
     @Override
     public boolean equals(Object o) {
@@ -159,13 +183,14 @@ public class Room {
             return false;
         }
         Room room = (Room) o;
-        return id == room.id && Objects.equals(roomNumber, room.roomNumber) && maxOccupancy == room.maxOccupancy && isActive == room.isActive && Objects.equals(currentStatus, room.currentStatus) && batchId == room.batchId && Objects.equals(workOrders, room.workOrders) && Objects.equals(resourceMetadata, room.resourceMetadata);
+        return id == room.id && Objects.equals(roomNumber, room.roomNumber) && maxOccupancy == room.maxOccupancy && isActive == room.isActive && Objects.equals(currentStatus, room.currentStatus) && batchId == room.batchId && Objects.equals(workOrders, room.workOrders);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, roomNumber, maxOccupancy, isActive, currentStatus, batchId, workOrders, resourceMetadata);
+        return Objects.hash(id, roomNumber, maxOccupancy, isActive, currentStatus, batchId, workOrders);
     }
+    
 
     @Override
     public String toString() {
@@ -177,7 +202,7 @@ public class Room {
             ", currentStatus='" + getCurrentStatus() + "'" +
             ", batchId='" + getBatchId() + "'" +
             ", workOrders='" + getWorkOrders() + "'" +
-            ", resourceMetadata='" + getResourceMetadata() + "'" +
+            // ", resourceMetadata='" + getResourceMetadata() + "'" +
             "}";
     }
 }

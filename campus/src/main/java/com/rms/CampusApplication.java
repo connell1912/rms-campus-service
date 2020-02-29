@@ -20,7 +20,7 @@ public class CampusApplication {
 	@Bean
 	CommandLineRunner runner(RoomDao rd) {
 		return args -> {
-			 rd.save(new Room(0, "Room 36", 30, true, "Status is Good", 3, null));
+//			 rd.save(new Room(0, "Room 36", 30, true, "Status is Good", 3, null));
 		};
 	}
 

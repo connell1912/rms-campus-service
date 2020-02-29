@@ -1,6 +1,5 @@
 package com.rms.controller;
 
-import com.rms.dao.BuildingDao;
 import com.rms.model.Building;
 import com.rms.service.BuildingService;
 
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/building")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BuildingController {
 
     @Autowired

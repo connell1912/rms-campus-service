@@ -66,6 +66,13 @@ public class Room {
         this.batchId = batchId;
         this.workOrders = workOrders;
     }
+    
+    public Room(String roomNumber, int maxOccupancy, boolean isActive, String currentStatus) {
+    	this.roomNumber = roomNumber;
+    	this.maxOccupancy = maxOccupancy;
+    	this.isActive = isActive;
+    	this.currentStatus = currentStatus;
+    }
 
     public int getId() {
         return this.id;

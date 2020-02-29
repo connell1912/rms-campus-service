@@ -31,14 +31,16 @@ public class Building {
 
     private int trainingLead;
 
-    private String amenities;
+    @OneToOne
+    private Amenity[] amenities;
 
-    private String rooms;
+    @OneToOne
+    private Room[] rooms;
 
     @OneToOne
     private ResourceMetadata resourceMetadata;
 
-    public Building(String name, String abbrName, Address physicalAddress, int trainingLead, String amenities, String rooms, ResourceMetadata resourceMetadata) {
+    public Building(String name, String abbrName, Address physicalAddress, int trainingLead, Amenity[] amenities, Room[] rooms, ResourceMetadata resourceMetadata) {
         this.name = name;
         this.abbrName = abbrName;
         this.physicalAddress = physicalAddress;

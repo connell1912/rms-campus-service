@@ -12,11 +12,35 @@ public class RoomService {
     @Autowired
     RoomDao rd;
 
-    public void save(Room rm) {
-        rd.save(rm);
+    public Iterable<Room> findAll(){
+        return rd.findAll();
     }
 
-    public void delete(Room rm) {
-        rd.delete(rm);
+    public Room findRoomById(int id){
+        return rd.findById(id).get();
+    }
+
+    public void save(Room room){
+        rd.save(room);
+    }
+
+    public void update(Room room){
+        rd.save(room);
+    }
+
+    // update by ID in case we need it
+    public void updateById(int id){
+        Room room = rd.findById(id).get();
+        rd.save(room);
+    }
+
+    public void delete(Room room){
+        rd.delete(room);
+    }
+
+    // delete by ID in case we need it
+    public void deleteById(int id){
+        Room room = rd.findById(id).get();
+        rd.delete(room);
     }
 }

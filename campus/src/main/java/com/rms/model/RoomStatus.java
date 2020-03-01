@@ -2,6 +2,7 @@ package com.rms.model;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,14 +14,25 @@ import javax.persistence.Table;
 @Table
 public class RoomStatus {
 
+    // @SequenceGenerator(name = "RoomSID_seq", sequenceName = "RoomSID_seq", initialValue = 1, allocationSize = 1)
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RoomSID_seq")
     @Id
-    @SequenceGenerator(name = "RoomSID_seq", sequenceName = "RoomSID_seq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RoomSID_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private boolean whiteboardCleaned;
+
+    @Column
     private boolean chairOrdered;
+
+    @Column
     private boolean desksCleaned;
+
+    @Column
     private String submittedDateTime;
+
+    @Column
     private int submitterId;
 
     public RoomStatus() {

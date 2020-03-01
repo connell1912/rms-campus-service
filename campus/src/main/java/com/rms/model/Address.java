@@ -2,6 +2,7 @@ package com.rms.model;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,15 +14,25 @@ import javax.persistence.Table;
 @Table
 public class Address{
 
+    // @SequenceGenerator(name = "AddressID_seq", sequenceName = "AddressID_seq", initialValue = 1, allocationSize = 1)
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AddressID_seq")
     @Id
-    @SequenceGenerator(name = "AddressID_seq", sequenceName = "AddressID_seq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AddressID_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
+    @Column
     private String unitStreet;
+
+    @Column
     private String city;
+
+    @Column
     private String state;
+
+    @Column
     private String zip;
+
+    @Column
     private String country;
 
     public Address() {
@@ -29,6 +40,14 @@ public class Address{
 
     public Address(int id, String unitStreet, String city, String state, String zip, String country) {
         this.id = id;
+        this.unitStreet = unitStreet;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.country = country;
+    }
+
+    public Address(String unitStreet, String city, String state, String zip, String country) {
         this.unitStreet = unitStreet;
         this.city = city;
         this.state = state;

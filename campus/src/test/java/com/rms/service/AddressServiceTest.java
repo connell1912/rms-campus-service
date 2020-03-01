@@ -1,37 +1,52 @@
 package com.rms.service;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import com.rms.dao.AddressDao;
 import com.rms.model.Address;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+// @RunWith(SpringRunner.class)
+// @SpringBootTest
 public class AddressServiceTest {
 
-    @Autowired
+    @InjectMocks
     AddressService as;
 
-    // @Mock
-    // AddressDao ad;
+    @Mock
+    AddressDao ad;
 
-    // @Before
-    // public void init(){
-    //     MockitoAnnotations.initMocks(this);
-    // }
+    @Before
+    public void init(){
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testSaveNewAddress(){
+        Address test = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
+        as.save(test);
+        verify(ad, times(1)).save(test);
+    }
+
+    @Test
+    public void testFindAddressById(){
+        when(ad.findById(1)).thenReturn(new Address("test-street", "test-city", "test-state", "test-zip", "test-country"));
+        Address add = as.findAddressById(1);
+        assertEquals("test-street", add.getUnitStreet());
+        assertEquals("test-city", add.getCity());
+        assertEquals("test-state", add.getState());
+    }
 
     @Test
     public void testReadAllAddresses(){
@@ -40,33 +55,23 @@ public class AddressServiceTest {
     }
 
     @Test
-    public void testFindAddressById(){
-        Address add = as.findAddressById(1);
-        assertTrue(add != null);
-    }
-
-    @Test
-    public void testSaveNewAddress(){
-        Address test = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
-        // as.save(test);
-        // verify(as, times(1)).save(test);
-        System.out.println("****************Test**************** \n"+as.findAddressById(3));
-        assertTrue(as.findAddressById(1) != null);
-    }
-
-    @Test
     public void testUpdateAddress(){
-        Address add = as.findAddressById(1);
-        add.setCity("Orlando");
+        Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         as.save(add);
-        assertTrue(add.getCity().equals("Orlando"));
+        Address add2 = as.findAddressById(1);
+        add2 = new Address("test-street2", "test-city", "test-state", "test-zip", "test-country");
+        as.update(add2);
+        assertEquals("test-street2", add2.getUnitStreet());
     }
 
     @Test
     public void testDeleteAddress(){
         Address delete = new Address(0, "delete-street", "delete-city", "delete-state", "delete-zip", "delete-country");
         as.save(delete);
-        assertTrue(as.delete(delete) != null);
+        Address add2 = as.findAddressById(1);
+        as.delete(add2);
+        Address  add3 = as.findAddressById(1);
+        assertFalse(add3 != null);
     }
 
 }

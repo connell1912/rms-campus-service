@@ -11,4 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface AddressDao extends CrudRepository<Address, Integer>{
 
+    Address findById(int id);
+
 }

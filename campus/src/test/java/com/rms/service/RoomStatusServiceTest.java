@@ -34,21 +34,21 @@ public class RoomStatusServiceTest {
     }
 
     @Test
-    public void testSaveNewAddress() {
+    public void testSave() {
         RoomStatus test = new RoomStatus(true, true, true);
         rss.save(test);
         verify(rsd, times(1)).save(test);
     }
 
     @Test
-    public void testFindAddressById() {
+    public void testFindById() {
         when(rsd.findById(1)).thenReturn(new RoomStatus(true, true, true));
         RoomStatus test = rss.findRoomStatusById(1);
         assertNotNull(test);
     }
 
     @Test
-    public void testReadAllAddresses() {
+    public void testReadAll() {
         List<RoomStatus> list = new ArrayList<>();
         RoomStatus rs = new RoomStatus(true, true, true);
         list.add(rs);
@@ -59,7 +59,7 @@ public class RoomStatusServiceTest {
     }
 
     @Test
-    public void testUpdateAddress() {
+    public void testUpdate() {
         RoomStatus test = new RoomStatus(true, true, true);
         rss.save(test);
         RoomStatus test2 = rss.findRoomStatusById(1);
@@ -69,7 +69,7 @@ public class RoomStatusServiceTest {
     }
 
     @Test
-    public void testDeleteAddress() {
+    public void testDelete() {
         RoomStatus delete = new RoomStatus(true, true, true);
         rss.save(delete);
         RoomStatus add2 = rss.findRoomStatusById(1);

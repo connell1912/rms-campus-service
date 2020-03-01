@@ -29,7 +29,7 @@ public class RmdServiceTest {
     }
 
     @Test
-    public void testSaveNewAddress() {
+    public void testSave() {
         ResourceMetadata test = new ResourceMetadata(1, 1, 1);
         System.out.println(test);
         rms.save(test);
@@ -37,14 +37,14 @@ public class RmdServiceTest {
     }
 
     @Test
-    public void testFindAddressById() {
+    public void testFindById() {
         when(rmd.findById(1)).thenReturn(new ResourceMetadata(1, 1, 1));
         ResourceMetadata test = rms.findById(1);
         assertNotNull(test);
     }
 
     @Test
-    public void testUpdateAddress() {
+    public void testUpdate() {
         ResourceMetadata test = new ResourceMetadata(1, 1, 1);
         rms.save(test);
         ResourceMetadata test2 = rms.findById(1);

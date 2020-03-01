@@ -37,4 +37,11 @@ public class ResourceMetadata{
 
     private int resourceOwner;
 
+    public ResourceMetadata(int resourceCreator, int lastModifier, int resourceOwner) {
+        this.resourceCreator = resourceCreator;
+        this.lastModifier = lastModifier;
+        this.resourceOwner = resourceOwner;
+    }
+
+
 }

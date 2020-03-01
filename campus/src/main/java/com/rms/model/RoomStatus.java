@@ -1,10 +1,14 @@
 package com.rms.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,16 +31,15 @@ public class RoomStatus {
 
     private boolean desksCleaned;
 
-    private String submittedDateTime;
+    @CreationTimestamp
+    private Timestamp submittedDateTime;
 
     private int submitterId;
 
-    public RoomStatus(boolean whiteboardCleaned, boolean chairOrdered, boolean desksCleaned, String submittedDateTime, int submitterId) {
+    public RoomStatus(boolean whiteboardCleaned, boolean chairOrdered, boolean desksCleaned) {
         this.whiteboardCleaned = whiteboardCleaned;
         this.chairOrdered = chairOrdered;
         this.desksCleaned = desksCleaned;
-        this.submittedDateTime = submittedDateTime;
-        this.submitterId = submitterId;
     }
 
 }

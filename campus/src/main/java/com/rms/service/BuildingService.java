@@ -17,7 +17,7 @@ public class BuildingService {
     }
 
     public Building findBuildingById(int id){
-        return bd.findById(id).get();
+        return bd.findById(id);
     }
 
     public void save(Building build){
@@ -30,7 +30,7 @@ public class BuildingService {
 
     // update by ID in case we need it
     public void updateById(int id){
-        Building build = bd.findById(id).get();
+        Building build = bd.findById(id);
         bd.save(build);
     }
 
@@ -40,7 +40,7 @@ public class BuildingService {
 
     // delete by ID in case we need it
     public void deleteById(int id){
-        Building build = bd.findById(id).get();
+        Building build = bd.findById(id);
         bd.delete(build);
     }
 }

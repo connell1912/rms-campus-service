@@ -10,5 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface BuildingDao extends CrudRepository<Building, Integer>{
 
+    Building findById(int id);
     
 }

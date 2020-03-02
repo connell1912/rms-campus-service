@@ -10,4 +10,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface RoomDao extends CrudRepository<Room, Integer>{
     
+    Room findById(int id);
 }

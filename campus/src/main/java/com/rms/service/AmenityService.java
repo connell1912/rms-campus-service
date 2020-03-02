@@ -17,7 +17,7 @@ public class AmenityService {
     }
 
     public Amenity findAmenityById(int id){
-        return ad.findById(id).get();
+        return ad.findById(id);
     }
 
     public void save(Amenity am){
@@ -30,7 +30,7 @@ public class AmenityService {
 
     // update by ID in case we need it
     public void updateById(int id){
-        Amenity am = ad.findById(id).get();
+        Amenity am = ad.findById(id);
         ad.save(am);
     }
 
@@ -40,7 +40,7 @@ public class AmenityService {
 
     // delete by ID in case we need it
     public void deleteById(int id){
-        Amenity am = ad.findById(id).get();
+        Amenity am = ad.findById(id);
         ad.delete(am);
     }
     

@@ -1,6 +1,5 @@
 package com.rms.controller;
 
-import com.rms.dao.AmenityDao;
 import com.rms.model.Amenity;
 import com.rms.service.AmenityService;
 

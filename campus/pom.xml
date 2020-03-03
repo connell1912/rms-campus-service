@@ -10,8 +10,8 @@
   <groupId>com.rms</groupId>
   <artifactId>campus</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>demo</name>
-  <description>Demo project for Spring Boot</description>
+  <name>Campus-Service</name>
+  <description>RMS-Campus-Service</description>
   <properties>
     <java.version>1.8</java.version>
     <spring-cloud.version>Hoxton.SR1</spring-cloud.version>

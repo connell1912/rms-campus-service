@@ -17,11 +17,11 @@ public class CampusApplication {
 		SpringApplication.run(CampusApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner(RoomDao rd) {
-		return args -> {
-//			 rd.save(new Room(0, "Room 36", 30, true, "Status is Good", 3, null));
-		};
-	}
+	// @Bean
+	// CommandLineRunner runner(RoomDao rd) {
+	// 	return args -> {
+	// 		//  rd.save(new Room("Room 36", 30, true, 3));
+	// 	};
+	// }
 
 }

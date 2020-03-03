@@ -11,5 +11,4 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface CampusDao extends CrudRepository<Campus, Integer>{
     
-    Campus findById(int id);
 }

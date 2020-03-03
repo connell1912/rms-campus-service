@@ -17,7 +17,7 @@ public class CampusService {
     }
 
     public Campus findCampusById(int id){
-        return cd.findById(id);
+        return cd.findById(id).get();
     }
 
     public void save(Campus camp){
@@ -30,7 +30,7 @@ public class CampusService {
 
     // update by ID in case we need it
     public void updateById(int id){
-        Campus camp = cd.findById(id);
+        Campus camp = cd.findById(id).get();
         cd.save(camp);
     }
 
@@ -40,7 +40,7 @@ public class CampusService {
 
     // delete by ID in case we need it
     public void deleteById(int id){
-        Campus camp = cd.findById(id);
+        Campus camp = cd.findById(id).get();
         cd.delete(camp);
     }
 }

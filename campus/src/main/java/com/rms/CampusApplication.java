@@ -21,10 +21,6 @@ public class CampusApplication {
 	// CommandLineRunner runner(RoomDao rd) {
 	// 	return args -> {
 	// 		//  rd.save(new Room("Room 36", 30, true, 3));
-	// CommandLineRunner runner(AddressDao rd) {
-	// 	return args -> {
-	// 		rd.save(new Address("12702 Bruce B Downs Blvd", "Tampa", "Florida", "33612", "US"));
-	// 		rd.save(new Address("123 W 45 ST", "Miami", "Florida", "33193", "US"));
 	// 	};
 	// }
 

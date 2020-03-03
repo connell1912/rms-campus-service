@@ -1,46 +1,128 @@
-package com.rms.model;
+// package com.rms.model;
 
-import java.sql.Timestamp;
+// import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+// import javax.persistence.Entity;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.GenerationType;
+// import javax.persistence.Id;
+// import javax.persistence.SequenceGenerator;
+// import javax.persistence.Table;
 
-import org.hibernate.annotations.CreationTimestamp;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Entity
-@Table
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ResourceMetadata{
+// @Entity
+// @Table
+// public class ResourceMetadata{
 	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    
-    private int resourceCreator;
+// 	@Id
+//     @SequenceGenerator(name = "ResourceID_seq", sequenceName = "ResourceID_seq", initialValue = 1, allocationSize = 1)
+//     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ResourceID_seq")
+// 	private int id;
+//     private int resourceCreator;
+//     private String resourceCreatorDateTime;
+//     private int lastModifier;
+//     private String lastModifiedDateTime;
+//     private int resourceOwner;
 
-    @CreationTimestamp
-    private Timestamp resourceCreatorDateTime;
+//     public ResourceMetadata() {
+//     }
 
-    private int lastModifier;
+//     public ResourceMetadata(int resourceCreator, String resourceCreatorDateTime, int lastModifier, String lastModifiedDateTime, int resourceOwner) {
+//         this.resourceCreator = resourceCreator;
+//         this.resourceCreatorDateTime = resourceCreatorDateTime;
+//         this.lastModifier = lastModifier;
+//         this.lastModifiedDateTime = lastModifiedDateTime;
+//         this.resourceOwner = resourceOwner;
+//     }
 
-    @CreationTimestamp
-    private Timestamp lastModifiedDateTime;
+//     public int getResourceCreator() {
+//         return this.resourceCreator;
+//     }
 
-    private int resourceOwner;
+//     public void setResourceCreator(int resourceCreator) {
+//         this.resourceCreator = resourceCreator;
+//     }
 
-    public ResourceMetadata(int resourceCreator, int lastModifier, int resourceOwner) {
-        this.resourceCreator = resourceCreator;
-        this.lastModifier = lastModifier;
-        this.resourceOwner = resourceOwner;
-    }
+//     public String getResourceCreatorDateTime() {
+//         return this.resourceCreatorDateTime;
+//     }
 
-}
+//     public void setResourceCreatorDateTime(String resourceCreatorDateTime) {
+//         this.resourceCreatorDateTime = resourceCreatorDateTime;
+//     }
+
+//     public int getLastModifier() {
+//         return this.lastModifier;
+//     }
+
+//     public void setLastModifier(int lastModifier) {
+//         this.lastModifier = lastModifier;
+//     }
+
+//     public String getLastModifiedDateTime() {
+//         return this.lastModifiedDateTime;
+//     }
+
+//     public void setLastModifiedDateTime(String lastModifiedDateTime) {
+//         this.lastModifiedDateTime = lastModifiedDateTime;
+//     }
+
+//     public int getResourceOwner() {
+//         return this.resourceOwner;
+//     }
+
+//     public void setResourceOwner(int resourceOwner) {
+//         this.resourceOwner = resourceOwner;
+//     }
+
+//     public ResourceMetadata resourceCreator(int resourceCreator) {
+//         this.resourceCreator = resourceCreator;
+//         return this;
+//     }
+
+//     public ResourceMetadata resourceCreatorDateTime(String resourceCreatorDateTime) {
+//         this.resourceCreatorDateTime = resourceCreatorDateTime;
+//         return this;
+//     }
+
+//     public ResourceMetadata lastModifier(int lastModifier) {
+//         this.lastModifier = lastModifier;
+//         return this;
+//     }
+
+//     public ResourceMetadata lastModifiedDateTime(String lastModifiedDateTime) {
+//         this.lastModifiedDateTime = lastModifiedDateTime;
+//         return this;
+//     }
+
+//     public ResourceMetadata resourceOwner(int resourceOwner) {
+//         this.resourceOwner = resourceOwner;
+//         return this;
+//     }
+
+//     @Override
+//     public boolean equals(Object o) {
+//         if (o == this)
+//             return true;
+//         if (!(o instanceof ResourceMetadata)) {
+//             return false;
+//         }
+//         ResourceMetadata resourceMetadata = (ResourceMetadata) o;
+//         return resourceCreator == resourceMetadata.resourceCreator && Objects.equals(resourceCreatorDateTime, resourceMetadata.resourceCreatorDateTime) && lastModifier == resourceMetadata.lastModifier && Objects.equals(lastModifiedDateTime, resourceMetadata.lastModifiedDateTime) && resourceOwner == resourceMetadata.resourceOwner;
+//     }
+
+//     @Override
+//     public int hashCode() {
+//         return Objects.hash(resourceCreator, resourceCreatorDateTime, lastModifier, lastModifiedDateTime, resourceOwner);
+//     }
+
+//     @Override
+//     public String toString() {
+//         return "{" +
+//             " resourceCreator='" + getResourceCreator() + "'" +
+//             ", resourceCreatorDateTime='" + getResourceCreatorDateTime() + "'" +
+//             ", lastModifier='" + getLastModifier() + "'" +
+//             ", lastModifiedDateTime='" + getLastModifiedDateTime() + "'" +
+//             ", resourceOwner='" + getResourceOwner() + "'" +
+//             "}";
+//     }
+// }

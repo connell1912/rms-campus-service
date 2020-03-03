@@ -10,5 +10,4 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface AmenityDao extends CrudRepository<Amenity, Integer>{
     
-    Amenity findById(int id);
 }

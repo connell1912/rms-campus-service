@@ -1,5 +1,6 @@
 package com.rms.controller;
 
+import com.rms.dao.BuildingDao;
 import com.rms.model.Building;
 import com.rms.service.BuildingService;
 

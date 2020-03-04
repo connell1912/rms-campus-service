@@ -1,18 +1,10 @@
 package com.rms;
 
-// import com.rms.dao.AddressDao;
-// import com.rms.dao.AmenityDao;
-import com.rms.dao.BuildingDao;
+import com.rms.dao.AddressDao;
+import com.rms.facade.AddressFacade;
 import com.rms.model.Address;
-import com.rms.model.Amenity;
-// import com.rms.model.Address;
-// import com.rms.model.Amenity;
-// import com.rms.model.AmenityStatus;
-// import com.rms.model.AmenityType;
-import com.rms.model.Building;
-import com.rms.model.ResourceMetadata;
-import com.rms.model.Room;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,11 +18,21 @@ public class CampusApplication {
 		SpringApplication.run(CampusApplication.class, args);
 	}
 
+	@Bean
+    public ModelMapper modelMapper(){
+        return  new ModelMapper();
+    }
+
+    @Bean
+    public AddressFacade addressFacade(){
+        return  new AddressFacade();
+	}
+
 	// @Bean
-	// CommandLineRunner runner(BuildingDao rd) {
+	// CommandLineRunner runner(AddressDao rd) {
 	// 	return args -> {
-	// 		// rd.save(new Address("12702 Bruce B Downs Blvd", "Tampa", "Florida", "33612",
-	// 		// "US"));
+	// 		rd.save(new Address("12702 Bruce B Downs Blvd", "Tampa", "Florida", "33612",
+	// 		"US"));
 	// 		// rd.save(new Amenity(AmenityType.COFFEE, AmenityStatus.OK));
 	// 		Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
 	// 		Amenity[] am = new Amenity[2];

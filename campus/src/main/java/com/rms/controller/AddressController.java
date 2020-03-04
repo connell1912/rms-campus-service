@@ -1,6 +1,8 @@
 package com.rms.controller;
 
+import com.rms.facade.AddressFacade;
 import com.rms.model.Address;
+import com.rms.model.AddressDTO;
 import com.rms.service.AddressService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +24,17 @@ public class AddressController {
     @Autowired
     AddressService as;
 
+    @Autowired
+    AddressFacade af;
+
     @GetMapping("/all")
     public Iterable<Address> getAllAddresses() {
         return as.findAll();
     }
 
     @GetMapping("/{id}")
-    public Address findAddressById(@PathVariable("id") int id) {
-        return as.findAddressById(id);
+    public AddressDTO findAddressById(@PathVariable("id") int id) {
+        return af.getAddressById(id);
     }
 
     @PostMapping("/new")

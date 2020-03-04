@@ -34,9 +34,8 @@ public class AddressService {
         ad.save(add);
     }
 
-    public Address delete(Address add){
+    public void delete(Address add){
         ad.delete(add);
-        return add;
     }
 
     // delete by ID in case we need it

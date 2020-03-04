@@ -42,4 +42,14 @@ public class RoomStatus {
         this.desksCleaned = desksCleaned;
     }
 
+
+    public RoomStatus(boolean whiteboardCleaned, boolean chairOrdered, boolean desksCleaned, Timestamp submittedDateTime, int submitterId) {
+        this.whiteboardCleaned = whiteboardCleaned;
+        this.chairOrdered = chairOrdered;
+        this.desksCleaned = desksCleaned;
+        this.submittedDateTime = submittedDateTime;
+        this.submitterId = submitterId;
+    }
+
+
 }

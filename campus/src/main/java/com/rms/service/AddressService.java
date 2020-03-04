@@ -17,7 +17,7 @@ public class AddressService {
     }
 
     public Address findAddressById(int id){
-        return ad.findById(id);
+        return ad.findById(id).get();
     }
 
     public void save(Address add){
@@ -30,18 +30,17 @@ public class AddressService {
 
     // update by ID in case we need it
     public void updateById(int id){
-        Address add = ad.findById(id);
+        Address add = ad.findById(id).get();
         ad.save(add);
     }
 
-    public Address delete(Address add){
+    public void delete(Address add){
         ad.delete(add);
-        return add;
     }
 
     // delete by ID in case we need it
     public void deleteById(int id){
-        Address add = ad.findById(id);
+        Address add = ad.findById(id).get();
         ad.delete(add);
     }
 }

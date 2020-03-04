@@ -26,18 +26,18 @@ public class CampusApplication {
 		SpringApplication.run(CampusApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner(BuildingDao rd) {
-		return args -> {
-			// rd.save(new Address("12702 Bruce B Downs Blvd", "Tampa", "Florida", "33612",
-			// "US"));
-			// rd.save(new Amenity(AmenityType.COFFEE, AmenityStatus.OK));
-			Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
-			Amenity[] am = new Amenity[2];
-			Room[] room = new Room[3];
-			ResourceMetadata rmd = new ResourceMetadata();
-			rd.save(new Building("Business of College", "Muma", add, 1, am, room, rmd));
-		};
-	}
+	// @Bean
+	// CommandLineRunner runner(BuildingDao rd) {
+	// 	return args -> {
+	// 		// rd.save(new Address("12702 Bruce B Downs Blvd", "Tampa", "Florida", "33612",
+	// 		// "US"));
+	// 		// rd.save(new Amenity(AmenityType.COFFEE, AmenityStatus.OK));
+	// 		Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
+	// 		Amenity[] am = new Amenity[2];
+	// 		Room[] room = new Room[3];
+	// 		ResourceMetadata rmd = new ResourceMetadata();
+	// 		rd.save(new Building("Business of College", "Muma", add, 1, am, room, rmd));
+	// 	};
+	// }
 
 }

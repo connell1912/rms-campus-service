@@ -1,0 +1,8 @@
+com\rms\service\AmenityServiceTest.class
+com\rms\service\AddressServiceTest.class
+com\rms\service\BuildingServiceTest.class
+com\rms\service\RoomServiceTest.class
+com\rms\service\RmdServiceTest.class
+com\rms\model\AddressTest.class
+com\rms\service\RoomStatusServiceTest.class
+com\rms\service\CampusServiceTest.class

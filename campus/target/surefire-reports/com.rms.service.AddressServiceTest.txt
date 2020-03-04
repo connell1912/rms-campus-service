@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.rms.service.AddressServiceTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.238 s - in com.rms.service.AddressServiceTest

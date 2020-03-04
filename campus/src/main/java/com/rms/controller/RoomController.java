@@ -29,7 +29,7 @@ public class RoomController {
 
     @GetMapping("/{id}")
     public Room findRoomById(@PathVariable("id") int id) {
-        return rs.findRoomById(id);
+        return rs.findById(id);
     }
 
     @PostMapping("/new")

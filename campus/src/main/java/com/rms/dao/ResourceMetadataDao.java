@@ -10,4 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface ResourceMetadataDao extends CrudRepository<ResourceMetadata, Integer>{
 
+    ResourceMetadata findById(int id);
+
 }

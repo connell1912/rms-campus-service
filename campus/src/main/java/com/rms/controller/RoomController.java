@@ -1,6 +1,5 @@
 package com.rms.controller;
 
-import com.rms.dao.RoomDao;
 import com.rms.model.Room;
 import com.rms.service.RoomService;
 

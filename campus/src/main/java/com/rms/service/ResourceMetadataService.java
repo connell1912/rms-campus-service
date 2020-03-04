@@ -7,10 +7,6 @@ public class ResourceMetadataService {
     @Autowired
     ResourceMetadataDao rmd;
 
-    public ResourceMetadata findRmdById(int id) {
-        return rmd.findById(id);
-    }
-
     public void insert(ResourceMetadata rm){
         rmd.save(rm);
     }
@@ -21,7 +17,7 @@ public class ResourceMetadataService {
 
     // update by ID in case we need it
     public void updateByID(int id){
-        ResourceMetadata rm = rmd.findById(id);
+        ResourceMetadata rm = rmd.findById(id).get();
         rmd.save(rm);
     }
 

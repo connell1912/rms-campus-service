@@ -165,12 +165,4 @@ public class RoomStatus {
             "}";
     }
 
-
-    public RoomStatus(boolean whiteboardCleaned, boolean chairOrdered, boolean desksCleaned) {
-        this.whiteboardCleaned = whiteboardCleaned;
-        this.chairOrdered = chairOrdered;
-        this.desksCleaned = desksCleaned;
-    }
-
-
 }

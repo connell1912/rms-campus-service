@@ -36,6 +36,8 @@ public class RoomStatus {
 
     private int submitterId;
 
+    private String otherNotes;
+
     public RoomStatus(boolean whiteboardCleaned, boolean chairOrdered, boolean desksCleaned) {
         this.whiteboardCleaned = whiteboardCleaned;
         this.chairOrdered = chairOrdered;
@@ -43,12 +45,13 @@ public class RoomStatus {
     }
 
 
-    public RoomStatus(boolean whiteboardCleaned, boolean chairOrdered, boolean desksCleaned, Timestamp submittedDateTime, int submitterId) {
+    public RoomStatus(boolean whiteboardCleaned, boolean chairOrdered, boolean desksCleaned, Timestamp submittedDateTime, int submitterId, String otherNotes) {
         this.whiteboardCleaned = whiteboardCleaned;
         this.chairOrdered = chairOrdered;
         this.desksCleaned = desksCleaned;
         this.submittedDateTime = submittedDateTime;
         this.submitterId = submitterId;
+        this.otherNotes = otherNotes;
     }
 
 

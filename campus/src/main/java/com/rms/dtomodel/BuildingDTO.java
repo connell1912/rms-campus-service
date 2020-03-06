@@ -3,8 +3,6 @@ package com.rms.dtomodel;
 import javax.validation.constraints.NotNull;
 
 import com.rms.webmodel.Employee;
-import com.rms.model.ResourceMetadata;
-import com.rms.model.Room;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,11 +28,9 @@ public class BuildingDTO {
     @NotNull
     private AmenityDTO[] amenities;
 
-    // needs to be a DTO
     @NotNull
-    private Room[] rooms;
+    private RoomDTO[] rooms;
 
-    // needs to be a DTO
     @NotNull
-    private ResourceMetadata resourceMetadata;
+    private RMDDTO resourceMetadata;
 }

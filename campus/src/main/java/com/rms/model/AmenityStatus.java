@@ -4,4 +4,5 @@ public enum AmenityStatus {
     OK,
     LOW,
     OUT
+
 }

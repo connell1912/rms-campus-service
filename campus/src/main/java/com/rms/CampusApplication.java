@@ -1,16 +1,13 @@
 package com.rms;
 
-import com.rms.dao.AddressDao;
 import com.rms.facade.AddressFacade;
 import com.rms.facade.AmenityFacade;
 import com.rms.facade.BuildingFacade;
 import com.rms.facade.CampusFacade;
 import com.rms.facade.RoomFacade;
 import com.rms.facade.RoomStatusFacade;
-import com.rms.model.Address;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

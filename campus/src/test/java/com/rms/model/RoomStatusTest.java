@@ -22,8 +22,8 @@ public class RoomStatusTest {
     @Test
     public void testOtherConstructor() {
         Timestamp t = new Timestamp(1000);
-        RoomStatus rs = new RoomStatus(true, true, true, t, 1);
-        assertTrue(rs.equals(new RoomStatus(true, true, true, t, 1)));
+        RoomStatus rs = new RoomStatus(true, true, true, t, 1, "");
+        assertTrue(rs.equals(new RoomStatus(true, true, true, t, 1, "")));
     }
 
 }

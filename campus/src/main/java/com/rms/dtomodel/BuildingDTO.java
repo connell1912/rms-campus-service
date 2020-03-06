@@ -32,9 +32,9 @@ public class BuildingDTO {
 
     // needs to be a DTO
     @NotNull
-    private Room[] rooms;
+    private RoomDTO[] rooms;
 
     // needs to be a DTO
     @NotNull
-    private ResourceMetadata resourceMetadata;
+    private RMDDTO resourceMetadata;
 }

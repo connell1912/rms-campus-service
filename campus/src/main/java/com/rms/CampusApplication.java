@@ -1,6 +1,8 @@
 package com.rms;
 
 import com.rms.dao.AddressDao;
+import com.rms.dtomodel.AddressDTO;
+import com.rms.dtomodel.BuildingDTO;
 import com.rms.facade.AddressFacade;
 import com.rms.facade.AmenityFacade;
 import com.rms.facade.BuildingFacade;
@@ -9,8 +11,10 @@ import com.rms.facade.RMDFacade;
 import com.rms.facade.RoomFacade;
 import com.rms.facade.RoomStatusFacade;
 import com.rms.model.Address;
+import com.rms.model.Building;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,7 +30,15 @@ public class CampusApplication {
 
 	@Bean
     public ModelMapper modelMapper(){
-        return new ModelMapper();
+		ModelMapper mm = new ModelMapper();
+		PropertyMap<BuildingDTO, Building> propertyMap = new PropertyMap<BuildingDTO, Building> (){
+			protected void configure() {
+				map(source.getResourceMetadata()).setResourceMetadata(null);
+			}
+		};
+	
+		mm.addMappings(propertyMap);
+		return mm;
     }
 
     @Bean

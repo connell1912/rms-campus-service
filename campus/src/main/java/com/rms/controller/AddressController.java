@@ -27,6 +27,7 @@ public class AddressController {
     @Autowired
     AddressFacade af;
 
+    // may need to use DTOs for this
     @GetMapping("/all")
     public Iterable<Address> getAllAddresses() {
         return as.findAll();
@@ -52,6 +53,7 @@ public class AddressController {
     }
 
     // update by ID in case we need it
+    // may need to use DTOs for this
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         as.updateById(id);
@@ -66,6 +68,7 @@ public class AddressController {
     }
 
     // delete by ID in case we need it
+    // may need to use DTOs for this 
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         as.deleteById(id);

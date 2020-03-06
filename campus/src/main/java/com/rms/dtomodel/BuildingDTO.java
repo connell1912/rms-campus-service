@@ -2,11 +2,10 @@ package com.rms.dtomodel;
 
 import javax.validation.constraints.NotNull;
 
-import com.rms.webmodel.Title;
+import com.rms.webmodel.Employee;
 import com.rms.model.ResourceMetadata;
 import com.rms.model.Room;
 
-import io.micrometer.core.lang.NonNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,17 +15,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BuildingDTO {
 
-    @NonNull
+    @NotNull
     private int id;
 
-    @NonNull
+    @NotNull
     private String name;
 
-    @NonNull
+    @NotNull
     private AddressDTO physicAddress;
 
-    @NonNull
-    private Title title;
+    @NotNull
+    private Employee title;
 
     @NotNull
     private AmenityDTO[] amenities;

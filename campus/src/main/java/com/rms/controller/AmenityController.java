@@ -27,6 +27,7 @@ public class AmenityController {
     @Autowired
     AmenityFacade af;
 
+    // may need to use DTOs for this 
     @GetMapping("/all")
     public Iterable<Amenity> getAllAmenityes() {
         return as.findAll();
@@ -52,6 +53,7 @@ public class AmenityController {
     }
 
     // update by ID in case we need it
+    // may need to use DTOs for this 
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         as.updateById(id);
@@ -66,6 +68,7 @@ public class AmenityController {
     }
 
     // delete by ID in case we need it
+    // may need to use DTOs for this
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         as.deleteById(id);

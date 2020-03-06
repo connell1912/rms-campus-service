@@ -1,10 +1,12 @@
 package com.rms.dtomodel;
 
+import java.sql.Timestamp;
+
 import javax.validation.constraints.NotNull;
 
 import com.rms.webmodel.Employee;
-import com.rms.model.ResourceMetadata;
-import com.rms.model.Room;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,28 +15,27 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BuildingDTO {
+public class RoomStatusDTO {
 
     @NotNull
     private int id;
 
     @NotNull
-    private String name;
+    private boolean whiteboardCleaned;
 
     @NotNull
-    private AddressDTO physicAddress;
+    private boolean chairsOrdered;
 
     @NotNull
-    private Employee title;
+    private boolean desksCleaned;
 
     @NotNull
-    private AmenityDTO[] amenities;
+    @CreationTimestamp
+    private Timestamp submittedDateTime;
 
-    // needs to be a DTO
     @NotNull
-    private Room[] rooms;
+    private Employee submitter;
 
-    // needs to be a DTO
     @NotNull
-    private ResourceMetadata resourceMetadata;
+    private String otherNotes;
 }

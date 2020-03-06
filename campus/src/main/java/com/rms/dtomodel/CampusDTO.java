@@ -3,8 +3,6 @@ package com.rms.dtomodel;
 import javax.validation.constraints.NotNull;
 
 import com.rms.webmodel.Employee;
-import com.rms.model.ResourceMetadata;
-import com.rms.model.Room;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BuildingDTO {
+public class CampusDTO {
 
     @NotNull
     private int id;
@@ -22,19 +20,26 @@ public class BuildingDTO {
     private String name;
 
     @NotNull
-    private AddressDTO physicAddress;
+    private String abbrName;
 
     @NotNull
-    private Employee title;
+    private AddressDTO shippingAddress;
 
     @NotNull
-    private AmenityDTO[] amenities;
+    private Employee trainingManager;
 
-    // needs to be a DTO
     @NotNull
-    private Room[] rooms;
+    private Employee stagingManager;
 
-    // needs to be a DTO
     @NotNull
-    private ResourceMetadata resourceMetadata;
+    private Employee hrLead;
+
+    @NotNull
+    private BuildingDTO[] buildings;
+
+    @NotNull
+    private Employee[] corporateEmps;
+
+    @NotNull
+    private RMDDTO[] resourceMetadata;
 }

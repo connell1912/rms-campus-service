@@ -1,5 +1,7 @@
 package com.rms.controller;
 
+import com.rms.dtomodel.CampusDTO;
+import com.rms.facade.CampusFacade;
 import com.rms.model.Campus;
 import com.rms.service.CampusService;
 
@@ -22,29 +24,36 @@ public class CampusController {
     @Autowired
     CampusService cs;
 
+    @Autowired
+    CampusFacade cf;
+
+    // may need to use DTOs for this
     @GetMapping("/all")
     public Iterable<Campus> getAllCampuses() {
         return cs.findAll();
     }
 
     @GetMapping("/{id}")
-    public Campus findCampusById(@PathVariable("id") int id) {
-        return cs.findCampusById(id);
+    public CampusDTO findCampusById(@PathVariable("id") int id) {
+        return cf.getCampusById(id);
     }
 
     @PostMapping("/new")
-    public String insert(@RequestBody Campus camp) {
+    public String insert(@RequestBody CampusDTO cd) {
+        Campus camp = cf.convertToEntity(cd);
         cs.save(camp);
         return "Campus has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody Campus camp) {
+    public String update(@RequestBody CampusDTO cd) {
+        Campus camp = cf.convertToEntity(cd);
         cs.update(camp);
         return "Campus has been updated";
     }
 
     // update by ID in case we need it
+    // may need to use DTOs for this
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         cs.updateById(id);
@@ -52,12 +61,14 @@ public class CampusController {
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody Campus camp) {
+    public String delete(@RequestBody CampusDTO cd) {
+        Campus camp = cf.convertToEntity(cd);
         cs.delete(camp);
         return "Campus has been deleted";
     }
 
     // delete by ID in case we need it
+    // may need to use DTOs for this
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         cs.deleteById(id);

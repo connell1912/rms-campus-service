@@ -1,5 +1,7 @@
 package com.rms.controller;
 
+import com.rms.dtomodel.BuildingDTO;
+import com.rms.facade.BuildingFacade;
 import com.rms.model.Building;
 import com.rms.service.BuildingService;
 
@@ -22,25 +24,30 @@ public class BuildingController {
     @Autowired
     BuildingService bs;
 
+    @Autowired
+    BuildingFacade bf;
+
     @GetMapping("/all")
-    public Iterable<Building> getAllBuildinges() {
+    public Iterable<Building> getAllBuildings() {
         return bs.findAll();
     }
 
     @GetMapping("/{id}")
-    public Building findBuildingById(@PathVariable("id") int id) {
-        return bs.findBuildingById(id);
+    public BuildingDTO findBuildingById(@PathVariable("id") int id) {
+        return bf.getBuildingById(id);
     }
 
     @PostMapping("/new")
-    public String insert(@RequestBody Building a) {
-        bs.save(a);
+    public String insert(@RequestBody BuildingDTO bd) {
+        Building building = bf.convertToEntity(bd);
+        bs.save(building);
         return "Building has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody Building a) {
-        bs.update(a);
+    public String update(@RequestBody BuildingDTO bd) {
+        Building building = bf.convertToEntity(bd);
+        bs.update(building);
         return "Building has been updated";
     }
 
@@ -52,8 +59,9 @@ public class BuildingController {
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody Building a) {
-        bs.delete(a);
+    public String delete(@RequestBody BuildingDTO bd) {
+        Building building = bf.convertToEntity(bd);
+        bs.delete(building);
         return "Building has been deleted";
     }
 

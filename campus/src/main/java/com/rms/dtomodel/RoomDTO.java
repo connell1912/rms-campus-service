@@ -21,7 +21,7 @@ public class RoomDTO{
     private int id;
 
     @NotNull
-    private int roomNumber;
+    private String roomNumber;
 
     @NotNull
     private int maxOccupancy;

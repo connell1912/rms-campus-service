@@ -1,5 +1,7 @@
 package com.rms.controller;
 
+import com.rms.dtomodel.AmenityDTO;
+import com.rms.facade.AmenityFacade;
 import com.rms.model.Amenity;
 import com.rms.service.AmenityService;
 
@@ -22,24 +24,29 @@ public class AmenityController {
     @Autowired
     AmenityService as;
 
+    @Autowired
+    AmenityFacade af;
+
     @GetMapping("/all")
     public Iterable<Amenity> getAllAmenityes() {
         return as.findAll();
     }
 
     @GetMapping("/{id}")
-    public Amenity findAmenityById(@PathVariable("id") int id) {
-        return as.findAmenityById(id);
+    public AmenityDTO findAmenityById(@PathVariable("id") int id) {
+        return af.getAmenityById(id);
     }
 
     @PostMapping("/new")
-    public String insert(@RequestBody Amenity a) {
+    public String insert(@RequestBody AmenityDTO ad) {
+        Amenity a = af.convertToEntity(ad);
         as.save(a);
         return "Amenity has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody Amenity a) {
+    public String update(@RequestBody AmenityDTO ad) {
+        Amenity a = af.convertToEntity(ad);
         as.update(a);
         return "Amenity has been updated";
     }
@@ -52,7 +59,8 @@ public class AmenityController {
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody Amenity a) {
+    public String delete(@RequestBody AmenityDTO ad) {
+        Amenity a = af.convertToEntity(ad);
         as.delete(a);
         return "Amenity has been deleted";
     }

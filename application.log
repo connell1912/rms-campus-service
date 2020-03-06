@@ -1,0 +1,13 @@
+2020-03-05 20:51:58 INFO  Log4j:16 - findById method in the Dao ran
+2020-03-05 20:53:46 INFO  Log4j:16 - findById method in the Dao ran
+2020-03-05 20:54:30 INFO  Log4j:26 - insert method in the Dao has been ran
+2020-03-05 20:54:46 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-05 20:54:46 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-05 20:56:22 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-05 20:56:22 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-05 21:32:30 INFO  Log4j:16 - findById method in the Dao ran
+2020-03-05 21:32:41 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-05 21:32:41 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-05 21:59:23 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-05 21:59:23 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-05 21:59:28 INFO  Log4j:16 - findById method in the Dao ran

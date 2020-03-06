@@ -1,4 +1,4 @@
-package com.rms.model;
+package com.rms.dtomodel;
 
 import javax.validation.constraints.NotNull;
 

@@ -1,4 +1,4 @@
-package com.rms.facade;
+package com.rms.dtomodel;
 
 import org.modelmapper.ModelMapper;
 
@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 
 import com.rms.model.Address;
-import com.rms.model.AddressDTO;
 
 public class AddressDTOTest {
 

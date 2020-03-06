@@ -2,7 +2,7 @@ package com.rms.controller;
 
 import com.rms.facade.AddressFacade;
 import com.rms.model.Address;
-import com.rms.model.AddressDTO;
+import com.rms.dtomodel.AddressDTO;
 import com.rms.service.AddressService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +38,15 @@ public class AddressController {
     }
 
     @PostMapping("/new")
-    public String insert(@RequestBody Address a) {
+    public String insert(@RequestBody AddressDTO ad) {
+        Address a = af.convertToEntity(ad);
         as.save(a);
         return "Address has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody Address a) {
+    public String update(@RequestBody AddressDTO ad) {
+        Address a = af.convertToEntity(ad);
         as.update(a);
         return "Address has been updated";
     }
@@ -57,7 +59,8 @@ public class AddressController {
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody Address a) {
+    public String delete(@RequestBody AddressDTO ad) {
+        Address a = af.convertToEntity(ad);
         as.delete(a);
         return "Address has been deleted";
     }

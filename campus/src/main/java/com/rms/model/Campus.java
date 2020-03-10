@@ -43,7 +43,7 @@ public class Campus{
     @OneToOne
     private ResourceMetadata resourceMetadata;
     
-    public Campus(String name, String abbrName, Address shippingAddress, int trainingManagerId, int stagingManagerId, int hrLead, Building[] buildings, int[] corporateEmployees, ResourceMetadata resourceMetadata) {
+    public Campus(String name, String abbrName, Address shippingAddress, int trainingManagerId, int stagingManagerId, int hrLead, Building[] buildings, int[] corporateEmployees) {
         this.name = name;
         this.abbrName = abbrName;
         this.shippingAddress = shippingAddress;
@@ -52,7 +52,6 @@ public class Campus{
         this.hrLead = hrLead;
         this.buildings = buildings;
         this.corporateEmployees = corporateEmployees;
-        this.resourceMetadata = resourceMetadata;
     }
 
 }

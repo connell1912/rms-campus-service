@@ -1,8 +1,6 @@
 package com.rms.controller;
 
-import com.rms.facade.AddressFacade;
 import com.rms.model.Address;
-import com.rms.dtomodel.AddressDTO;
 import com.rms.service.AddressService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,36 +22,28 @@ public class AddressController {
     @Autowired
     AddressService as;
 
-    @Autowired
-    AddressFacade af;
-
-    // may need to use DTOs for this
     @GetMapping("/all")
     public Iterable<Address> getAllAddresses() {
         return as.findAll();
     }
 
     @GetMapping("/{id}")
-    public AddressDTO findAddressById(@PathVariable("id") int id) {
-        return af.getAddressById(id);
+    public Address findAddressById(@PathVariable("id") int id) {
+        return as.findAddressById(id);
     }
 
     @PostMapping("/new")
-    public String insert(@RequestBody AddressDTO ad) {
-        Address a = af.convertToEntity(ad);
-        as.save(a);
+    public String insert(@RequestBody Address add) {
+        as.save(add);
         return "Address has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody AddressDTO ad) {
-        Address a = af.convertToEntity(ad);
-        as.update(a);
+    public String update(@RequestBody Address add) {
+        as.update(add);
         return "Address has been updated";
     }
 
-    // update by ID in case we need it
-    // may need to use DTOs for this
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         as.updateById(id);
@@ -61,14 +51,11 @@ public class AddressController {
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody AddressDTO ad) {
-        Address a = af.convertToEntity(ad);
-        as.delete(a);
+    public String delete(@RequestBody Address add) {
+        as.delete(add);
         return "Address has been deleted";
     }
 
-    // delete by ID in case we need it
-    // may need to use DTOs for this 
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         as.deleteById(id);

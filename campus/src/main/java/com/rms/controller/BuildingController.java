@@ -1,7 +1,5 @@
 package com.rms.controller;
 
-import com.rms.dtomodel.BuildingDTO;
-import com.rms.facade.BuildingFacade;
 import com.rms.model.Building;
 import com.rms.service.BuildingService;
 
@@ -24,34 +22,28 @@ public class BuildingController {
     @Autowired
     BuildingService bs;
 
-    @Autowired
-    BuildingFacade bf;
-
     @GetMapping("/all")
     public Iterable<Building> getAllBuildings() {
         return bs.findAll();
     }
 
     @GetMapping("/{id}")
-    public BuildingDTO findBuildingById(@PathVariable("id") int id) {
-        return bf.getBuildingById(id);
+    public Building findBuildingById(@PathVariable("id") int id) {
+        return bs.findBuildingById(id);
     }
 
     @PostMapping("/new")
-    public String insert(@RequestBody BuildingDTO bd) {
-        Building building = bf.convertToEntity(bd);
-        bs.save(building);
+    public String insert(@RequestBody Building build) {
+        bs.save(build);
         return "Building has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody BuildingDTO bd) {
-        Building building = bf.convertToEntity(bd);
-        bs.update(building);
+    public String update(@RequestBody Building build) {
+        bs.update(build);
         return "Building has been updated";
     }
 
-    // update by ID in case we need it
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         bs.updateById(id);
@@ -59,13 +51,11 @@ public class BuildingController {
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody BuildingDTO bd) {
-        Building building = bf.convertToEntity(bd);
-        bs.delete(building);
+    public String delete(@RequestBody Building build) {
+        bs.delete(build);
         return "Building has been deleted";
     }
 
-    // delete by ID in case we need it
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         bs.deleteById(id);

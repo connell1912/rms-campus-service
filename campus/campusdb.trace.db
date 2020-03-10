@@ -791,3 +791,5 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Use
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
 	... 102 more
+2020-03-10 13:54:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "OK" [22018-200]

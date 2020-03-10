@@ -11,3 +11,9 @@
 2020-03-05 21:59:23 INFO  Log4j:21 - findAll method in the Dao has been ran
 2020-03-05 21:59:23 INFO  Log4j:21 - findAll method in the Dao has been ran
 2020-03-05 21:59:28 INFO  Log4j:16 - findById method in the Dao ran
+2020-03-09 09:52:30 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-09 09:52:30 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 13:59:25 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-10 14:34:44 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-10 14:37:36 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-10 14:40:07 INFO  Log4J:26 - A new entry has been inserted (insert)

@@ -11,6 +11,7 @@ import com.rms.dao.CampusDao;
 import com.rms.model.Address;
 import com.rms.model.Building;
 import com.rms.model.Campus;
+import com.rms.model.Name;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -34,23 +35,25 @@ public class CampusServiceTest {
 
     @Test
     public void testSaveNewCampus() {
+        Name name = new Name("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         verify(cd, times(1)).save(camp);
     }
 
     @Test
     public void testFindCampusById() {
+        Name name = new Name("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        when(cd.findById(1)).thenReturn(new Campus ("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp));
+        when(cd.findById(1)).thenReturn(new Campus (name, add, 1, 1, 1, build, corpEmp));
         Campus camp = cs.findCampusById(1);
-        assertEquals("test-name", camp.getName());
-        assertEquals("test-abbr", camp.getAbbrName());
+        assertEquals(name, camp.getName());
+        assertEquals(1, camp.getTrainingManagerId());
     }
 
     @Test
@@ -61,23 +64,25 @@ public class CampusServiceTest {
 
     @Test
     public void testUpdateCampus() {
+        Name name = new Name("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         Campus camp2 = cs.findCampusById(1);
-        camp2 = new Campus("test-name2", "test-abbr", add, 1, 1, 1, build, corpEmp);
+        camp2 = new Campus(name, add, 2, 1, 1, build, corpEmp);
         cs.update(camp2);
-        assertEquals("test-name2", camp2.getName());
+        assertEquals(2, camp2.getTrainingManagerId());
     }
 
     @Test
     public void testDeleteCampus() {
+        Name name = new Name("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         Campus camp2 = cs.findCampusById(1);
         cs.delete(camp2);
@@ -87,23 +92,25 @@ public class CampusServiceTest {
 
     @Test
     public void testUpdateById() {
+        Name name = new Name("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         Campus camp2 = cs.findCampusById(1);
-        camp2 = new Campus("test-name2", "test-abbr", add, 1, 1, 1, build, corpEmp);
+        camp2 = new Campus(name, add, 2, 1, 1, build, corpEmp);
         cs.updateById(1);
-        assertEquals("test-name2", camp2.getName());
+        assertEquals(2, camp2.getTrainingManagerId());
     }
 
     @Test
     public void testDeleteById(){
+        Name name = new Name("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         cs.deleteById(1);
         Campus camp2 = cs.findCampusById(1);

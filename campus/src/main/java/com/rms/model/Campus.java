@@ -22,7 +22,9 @@ public class Campus{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private FullName name;
+    private String name;
+
+    private String abbrName;
 
     @OneToOne
     private Address shippingAddress;
@@ -42,7 +44,8 @@ public class Campus{
     private ResourceMetadata resourceMetadata;
     
     public Campus(FullName name, Address shippingAddress, int trainingManagerId, int stagingManagerId, int hrLead, Building[] buildings, int[] corporateEmployees) {
-        this.name = name;
+        this.name = name.getName();
+        this.abbrName = name.getAbbrName();
         this.shippingAddress = shippingAddress;
         this.trainingManagerId = trainingManagerId;
         this.stagingManagerId = stagingManagerId;

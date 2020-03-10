@@ -52,7 +52,7 @@ public class CampusServiceTest {
         int[] corpEmp = new int[3];
         when(cd.findById(1)).thenReturn(new Campus (name, add, 1, 1, 1, build, corpEmp));
         Campus camp = cs.findCampusById(1);
-        assertEquals(name, camp.getName());
+        assertEquals("test-name", camp.getName());
         assertEquals(1, camp.getTrainingManagerId());
     }
 

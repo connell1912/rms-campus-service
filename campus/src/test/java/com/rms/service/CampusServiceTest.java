@@ -11,7 +11,7 @@ import com.rms.dao.CampusDao;
 import com.rms.model.Address;
 import com.rms.model.Building;
 import com.rms.model.Campus;
-import com.rms.model.Name;
+import com.rms.model.FullName;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +35,7 @@ public class CampusServiceTest {
 
     @Test
     public void testSaveNewCampus() {
-        Name name = new Name("test-name", "test-abbr");
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
@@ -46,7 +46,7 @@ public class CampusServiceTest {
 
     @Test
     public void testFindCampusById() {
-        Name name = new Name("test-name", "test-abbr");
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
@@ -64,7 +64,7 @@ public class CampusServiceTest {
 
     @Test
     public void testUpdateCampus() {
-        Name name = new Name("test-name", "test-abbr");
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
@@ -78,7 +78,7 @@ public class CampusServiceTest {
 
     @Test
     public void testDeleteCampus() {
-        Name name = new Name("test-name", "test-abbr");
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
@@ -92,7 +92,7 @@ public class CampusServiceTest {
 
     @Test
     public void testUpdateById() {
-        Name name = new Name("test-name", "test-abbr");
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
@@ -106,7 +106,7 @@ public class CampusServiceTest {
 
     @Test
     public void testDeleteById(){
-        Name name = new Name("test-name", "test-abbr");
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];

@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Name {
+public class FullName {
 
-    private String fullName;
+    private String name;
 
     private String abbrName;
 }

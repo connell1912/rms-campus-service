@@ -1,7 +1,6 @@
 package com.rms.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.rms.dao.RoomStatusDao;
 import com.rms.model.RoomStatus;
@@ -15,19 +14,35 @@ public class RoomStatusService {
     @Autowired
     RoomStatusDao rsd;
 
-    public void saveOrUpdate(RoomStatus status) {
-        rsd.save(status);
+    public List<RoomStatus> findAll(){
+        return (List<RoomStatus>) rsd.findAll();
     }
 
-    public void delete(RoomStatus status) {
-        rsd.delete(status);
-    }
-
-    public Optional<RoomStatus> read(int id) {
+    public RoomStatus findRoomStatusById(int id){
         return rsd.findById(id);
     }
 
-    public List<RoomStatus> readAll() {
-        return (List<RoomStatus>) rsd.findAll();
+    public void save(RoomStatus rs){
+        rsd.save(rs);
+    }
+
+    public void update(RoomStatus rs){
+        rsd.save(rs);
+    }
+
+    // update by ID in case we need it
+    public void updateById(int id){
+        RoomStatus rs = rsd.findById(id);
+        rsd.save(rs);
+    }
+
+    public void delete(RoomStatus rs){
+        rsd.delete(rs);
+    }
+
+    // delete by ID in case we need it
+    public void deleteById(int id){
+        RoomStatus rs = rsd.findById(id);
+        rsd.delete(rs);
     }
 }

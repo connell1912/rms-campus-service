@@ -23,11 +23,18 @@ public class BuildingService {
         bl.delete(bld);
     }
 
-    public Optional<Building> read(int id) {
+    public Iterable<Building> findAll(){
+        return bl.findAll();
+    }
+
+    public Building findBuildingById(int id){
         return bl.findById(id);
     }
 
-    public List<Building> readAll() {
-        return (List<Building>) bl.findAll();
-    }
+	public Building deleteById(int i) {
+        return bl.deleteById(i);
+	}
+
+
+   
 }

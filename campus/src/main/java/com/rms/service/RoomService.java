@@ -9,13 +9,27 @@ import com.rms.model.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RoomService {
-    
+
     @Autowired
     RoomDao rd;
 
-    public void saveOrUpdate(Room room) {
+    public void save(Room room) {
+        rd.save(room);
+    }
+
+    public Room findById(int id) {
+        return rd.findById(id);
+    }
+
+    public List<Room> findAll() {
+        return (List<Room>) rd.findAll();
+    }
+
+    public void update(Room room) {
         rd.save(room);
     }
 
@@ -23,11 +37,15 @@ public class RoomService {
         rd.delete(room);
     }
 
-    public Optional<Room> read(int id) {
-        return rd.findById(id);
+    // update by ID in case we need it
+    public void updateById(int id) {
+        Room room = rd.findById(id);
+        rd.save(room);
     }
 
-    public List<Room> readAll() {
-        return (List<Room>) rd.findAll();
+    // delete by ID in case we need it
+    public void deleteById(int id) {
+        Room room = rd.findById(id);
+        rd.delete(room);
     }
 }

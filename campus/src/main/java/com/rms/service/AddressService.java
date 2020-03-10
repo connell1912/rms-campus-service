@@ -15,15 +15,40 @@ public class AddressService {
     @Autowired
     AddressDao ad;
 
-    public void saveOrUpdate(Address add) {
+    public Iterable<Address> findAll(){
+        return ad.findAll();
+    }
+
+    public Address findAddressById(int id){
+        return ad.findById(id);
+    }
+
+    public void save(Address add){
         ad.save(add);
     }
 
-    public void delete(Address add) {
+    public void update(Address add){
+        ad.save(add);
+    }
+
+    // update by ID in case we need it
+    public void updateById(int id){
+        Address add = ad.findById(id);
+        ad.save(add);
+    }
+
+    public Address delete(Address add){
+        ad.delete(add);
+        return add;
+    }
+
+    // delete by ID in case we need it
+    public void deleteById(int id){
+        Address add = ad.findById(id);
         ad.delete(add);
     }
 
-    public Optional<Address> read(int id) {
+    public Address read(int id) {
         return ad.findById(id);
     }
 

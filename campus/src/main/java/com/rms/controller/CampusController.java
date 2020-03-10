@@ -44,7 +44,6 @@ public class CampusController {
         return "Campus has been updated";
     }
 
-    // update by ID in case we need it
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         cs.updateById(id);
@@ -57,7 +56,6 @@ public class CampusController {
         return "Campus has been deleted";
     }
 
-    // delete by ID in case we need it
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         cs.deleteById(id);

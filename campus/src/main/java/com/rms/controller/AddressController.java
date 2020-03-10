@@ -33,18 +33,17 @@ public class AddressController {
     }
 
     @PostMapping("/new")
-    public String insert(@RequestBody Address a) {
-        as.save(a);
+    public String insert(@RequestBody Address add) {
+        as.save(add);
         return "Address has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody Address a) {
-        as.update(a);
+    public String update(@RequestBody Address add) {
+        as.update(add);
         return "Address has been updated";
     }
 
-    // update by ID in case we need it
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         as.updateById(id);
@@ -52,12 +51,11 @@ public class AddressController {
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody Address a) {
-        as.delete(a);
+    public String delete(@RequestBody Address add) {
+        as.delete(add);
         return "Address has been deleted";
     }
 
-    // delete by ID in case we need it
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         as.deleteById(id);

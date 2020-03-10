@@ -55,7 +55,7 @@ public class RoomServiceTest {
     @Test
     public void testFindById() {
         when(rd.findById(1)).thenReturn(test);
-        Room test1 = rs.findById(1);
+        Room test1 = rs.findRoomById(1);
         assertNotNull(test1);
     }
 
@@ -72,7 +72,7 @@ public class RoomServiceTest {
     @Test
     public void testUpdate() {
         rs.save(test);
-        Room test2 = rs.findById(1);
+        Room test2 = rs.findRoomById(1);
         test2 = new Room("1406", 32, false, status, 1912, wo, rmd);
         rs.update(test2);
         assertNotSame(test, test2);
@@ -81,9 +81,9 @@ public class RoomServiceTest {
     @Test
     public void testDelete() {
         rs.save(test);
-        Room add2 = rs.findById(1);
+        Room add2 = rs.findRoomById(1);
         rs.delete(add2);
-        Room add3 = rs.findById(1);
+        Room add3 = rs.findRoomById(1);
         assertFalse(add3 != null);
     }
 
@@ -101,7 +101,7 @@ public class RoomServiceTest {
     public void deleteById() {
         when(rd.findById(1)).thenReturn(test);
         rs.delete(test);
-        Room test1 = rs.findById(0);
+        Room test1 = rs.findRoomById(0);
         System.out.println(test1);
         assertNull(test1);
     }

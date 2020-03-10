@@ -18,7 +18,7 @@ public class RoomService {
         rd.save(room);
     }
 
-    public Room findById(int id) {
+    public Room findRoomById(int id) {
         return rd.findById(id);
     }
 

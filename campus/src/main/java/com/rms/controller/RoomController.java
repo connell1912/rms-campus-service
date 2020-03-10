@@ -23,13 +23,13 @@ public class RoomController {
     RoomService rs;
 
     @GetMapping("/all")
-    public Iterable<Room> getAllRoomes() {
+    public Iterable<Room> getAllRooms() {
         return rs.findAll();
     }
 
     @GetMapping("/{id}")
     public Room findRoomById(@PathVariable("id") int id) {
-        return rs.findById(id);
+        return rs.findRoomById(id);
     }
 
     @PostMapping("/new")
@@ -44,7 +44,6 @@ public class RoomController {
         return "Room has been updated";
     }
 
-    // update by ID in case we need it
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         rs.updateById(id);
@@ -57,7 +56,6 @@ public class RoomController {
         return "Room has been deleted";
     }
 
-    // delete by ID in case we need it
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         rs.deleteById(id);

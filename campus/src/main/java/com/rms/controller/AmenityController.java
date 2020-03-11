@@ -23,7 +23,7 @@ public class AmenityController {
     AmenityService as;
 
     @GetMapping("/all")
-    public Iterable<Amenity> getAllAmenityes() {
+    public Iterable<Amenity> getAllAmenities() {
         return as.findAll();
     }
 
@@ -33,18 +33,17 @@ public class AmenityController {
     }
 
     @PostMapping("/new")
-    public String insert(@RequestBody Amenity a) {
-        as.save(a);
+    public String insert(@RequestBody Amenity am) {
+        as.save(am);
         return "Amenity has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody Amenity a) {
-        as.update(a);
+    public String update(@RequestBody Amenity am) {
+        as.update(am);
         return "Amenity has been updated";
     }
 
-    // update by ID in case we need it
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         as.updateById(id);
@@ -52,12 +51,11 @@ public class AmenityController {
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody Amenity a) {
-        as.delete(a);
+    public String delete(@RequestBody Amenity am) {
+        as.delete(am);
         return "Amenity has been deleted";
     }
 
-    // delete by ID in case we need it
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         as.deleteById(id);

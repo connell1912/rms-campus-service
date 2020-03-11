@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/building")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class BuildingController {
 
     @Autowired
     BuildingService bs;
 
     @GetMapping("/all")
-    public Iterable<Building> getAllBuildinges() {
+    public Iterable<Building> getAllBuildings() {
         return bs.findAll();
     }
 
@@ -33,18 +33,17 @@ public class BuildingController {
     }
 
     @PostMapping("/new")
-    public String insert(@RequestBody Building a) {
-        bs.save(a);
+    public String insert(@RequestBody Building build) {
+        bs.save(build);
         return "Building has been added";
     }
 
     @PutMapping("/updated")
-    public String update(@RequestBody Building a) {
-        bs.update(a);
+    public String update(@RequestBody Building build) {
+        bs.update(build);
         return "Building has been updated";
     }
 
-    // update by ID in case we need it
     @PutMapping("/updatedbyid")
     public String updateById(@RequestBody int id){
         bs.updateById(id);
@@ -52,12 +51,11 @@ public class BuildingController {
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody Building a) {
-        bs.delete(a);
+    public String delete(@RequestBody Building build) {
+        bs.delete(build);
         return "Building has been deleted";
     }
 
-    // delete by ID in case we need it
     @DeleteMapping("/deletedbyid")
     public String deleteById(@RequestBody int id){
         bs.deleteById(id);

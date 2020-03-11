@@ -11,7 +11,7 @@ import com.rms.dao.CampusDao;
 import com.rms.model.Address;
 import com.rms.model.Building;
 import com.rms.model.Campus;
-import com.rms.model.ResourceMetadata;
+import com.rms.model.FullName;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -35,25 +35,25 @@ public class CampusServiceTest {
 
     @Test
     public void testSaveNewCampus() {
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        ResourceMetadata rmd = new ResourceMetadata();
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp, rmd);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         verify(cd, times(1)).save(camp);
     }
 
     @Test
     public void testFindCampusById() {
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        ResourceMetadata rmd = new ResourceMetadata();
-        when(cd.findById(1)).thenReturn(new Campus ("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp, rmd));
+        when(cd.findById(1)).thenReturn(new Campus (name, add, 1, 1, 1, build, corpEmp));
         Campus camp = cs.findCampusById(1);
         assertEquals("test-name", camp.getName());
-        assertEquals("test-abbr", camp.getAbbrName());
+        assertEquals(1, camp.getTrainingManagerId());
     }
 
     @Test
@@ -64,25 +64,25 @@ public class CampusServiceTest {
 
     @Test
     public void testUpdateCampus() {
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        ResourceMetadata rmd = new ResourceMetadata();
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp, rmd);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         Campus camp2 = cs.findCampusById(1);
-        camp2 = new Campus("test-name2", "test-abbr", add, 1, 1, 1, build, corpEmp, rmd);
+        camp2 = new Campus(name, add, 2, 1, 1, build, corpEmp);
         cs.update(camp2);
-        assertEquals("test-name2", camp2.getName());
+        assertEquals(2, camp2.getTrainingManagerId());
     }
 
     @Test
     public void testDeleteCampus() {
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        ResourceMetadata rmd = new ResourceMetadata();
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp, rmd);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         Campus camp2 = cs.findCampusById(1);
         cs.delete(camp2);
@@ -92,25 +92,25 @@ public class CampusServiceTest {
 
     @Test
     public void testUpdateById() {
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        ResourceMetadata rmd = new ResourceMetadata();
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp, rmd);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         Campus camp2 = cs.findCampusById(1);
-        camp2 = new Campus("test-name2", "test-abbr", add, 1, 1, 1, build, corpEmp, rmd);
+        camp2 = new Campus(name, add, 2, 1, 1, build, corpEmp);
         cs.updateById(1);
-        assertEquals("test-name2", camp2.getName());
+        assertEquals(2, camp2.getTrainingManagerId());
     }
 
     @Test
     public void testDeleteById(){
+        FullName name = new FullName("test-name", "test-abbr");
         Address add = new Address("test-street", "test-city", "test-state", "test-zip", "test-country");
         Building[] build = new Building[2];
         int[] corpEmp = new int[3];
-        ResourceMetadata rmd = new ResourceMetadata();
-        Campus camp = new Campus("test-name", "test-abbr", add, 1, 1, 1, build, corpEmp, rmd);
+        Campus camp = new Campus(name, add, 1, 1, 1, build, corpEmp);
         cs.save(camp);
         cs.deleteById(1);
         Campus camp2 = cs.findCampusById(1);

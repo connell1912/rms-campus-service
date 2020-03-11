@@ -1,6 +1,8 @@
 package com.rms.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +23,10 @@ public class Amenity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Enumerated(EnumType.STRING)
     private AmenityType type;
 
+    @Enumerated(EnumType.STRING)
     private AmenityStatus status;
 
     public Amenity(AmenityType type, AmenityStatus status) {

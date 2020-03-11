@@ -1,8 +1,10 @@
 package com.rms.controller;
 
-import com.rms.dao.AmenityDao;
 import com.rms.model.Amenity;
+import com.rms.service.AmenityService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,35 +16,49 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/amenity")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AmenityController {
 
     @Autowired
-    AmenityDao amd;
+    AmenityService as;
+
+    @GetMapping("/all")
+    public Iterable<Amenity> getAllAmenities() {
+        return as.findAll();
+    }
 
     @GetMapping("/{id}")
-    public Amenity findById(@PathVariable("id") int id) {
-        return amd.findById(id).get();
-    }
-    
-    @PostMapping("/all")
-    public Iterable<Amenity> getAllAmenities() {
-        return amd.findAll();
+    public Amenity findAmenityById(@PathVariable("id") int id) {
+        return as.findAmenityById(id);
     }
 
-    @PostMapping
-    public String insert(@RequestBody Amenity a){
-        amd.save(a);
-        return "An amenity has been added";
+    @PostMapping("/new")
+    public String insert(@RequestBody Amenity am) {
+        as.save(am);
+        return "Amenity has been added";
     }
 
     @PutMapping("/updated")
-    public Amenity update(@RequestBody Amenity a) {
-        return amd.save(a);
+    public String update(@RequestBody Amenity am) {
+        as.update(am);
+        return "Amenity has been updated";
+    }
+
+    @PutMapping("/updatedbyid")
+    public String updateById(@RequestBody int id){
+        as.updateById(id);
+        return "Amenity has been updated by its ID";
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody Amenity a) {
-        amd.delete(a);
-        return "An Amenity has been deleted";
+    public String delete(@RequestBody Amenity am) {
+        as.delete(am);
+        return "Amenity has been deleted";
+    }
+
+    @DeleteMapping("/deletedbyid")
+    public String deleteById(@RequestBody int id){
+        as.deleteById(id);
+        return "Amenity has been deleted by ID";
     }
 }

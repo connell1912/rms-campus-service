@@ -1,48 +1,65 @@
 package com.rms.controller;
 
-import com.rms.dao.RoomStatusDao;
 import com.rms.model.RoomStatus;
+import com.rms.service.RoomStatusService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping(value = "/roomstatus")
+@CrossOrigin(origins = "http://localhost:3000")
 public class RoomStatusController {
 
     @Autowired
-    RoomStatusDao rsd;
+    RoomStatusService rss;
+
+    @GetMapping("/all")
+    public Iterable<RoomStatus> getAllRoomStatuses() {
+        return rss.findAll();
+    }
 
     @GetMapping("/{id}")
-    public RoomStatus findById(@PathVariable("id") int id) {
-        return rsd.findById(id).get();
-    }
-    
-    @PostMapping("/all")
-    public Iterable<RoomStatus> getAllRooms() {
-        return rsd.findAll();
+    public RoomStatus findRoomStatusById(@PathVariable("id") int id) {
+        return rss.findRoomStatusById(id);
     }
 
-    @PostMapping
-    public String insert(@RequestBody RoomStatus r){
-        rsd.save(r);
-        return "Room has been added";
+    @PostMapping("/new")
+    public String insert(@RequestBody RoomStatus rs) {
+        rss.save(rs);
+        return "Room Status has been added";
     }
 
     @PutMapping("/updated")
-    public RoomStatus update(@RequestBody RoomStatus r) {
-        return rsd.save(r);
+    public String update(@RequestBody RoomStatus rs) {
+        rss.update(rs);
+        return "Room Status has been updated";
+    }
+
+    @PutMapping("/updatedbyid")
+    public String updateById(@RequestBody int id){
+        rss.updateById(id);
+        return "Room Status has been updated by its ID";
     }
 
     @DeleteMapping("/deleted")
-    public String delete(@RequestBody RoomStatus r) {
-        rsd.delete(r);
-        return "Room has been deleted";
+    public String delete(@RequestBody RoomStatus rs) {
+        rss.delete(rs);
+        return "Room Status has been deleted";
+    }
+
+    @DeleteMapping("/deletedbyid")
+    public String deleteById(@RequestBody int id){
+        rss.deleteById(id);
+        return "Room Status has been deleted by ID";
     }
     
 }

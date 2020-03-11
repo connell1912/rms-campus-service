@@ -1,1 +1,90 @@
-2020-02-27 15:20:39 INFO  Log4j:26 - insert method in the Dao has been ran
+2020-02-29 16:03:20 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-02-29 16:03:20 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-02-29 16:06:38 INFO  Log4j:16 - findById method in the Dao ran
+2020-02-29 16:13:26 INFO  Log4j:16 - findById method in the Dao ran
+2020-02-29 16:44:04 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-02-29 16:44:04 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-02-29 17:03:19 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-02-29 17:05:21 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-02-29 17:12:47 INFO  Log4j:16 - findById method in the Dao ran
+2020-02-29 18:28:17 INFO  Log4j:16 - findById method in the Dao ran
+2020-02-29 19:10:59 INFO  Log4j:16 - findById method in the Dao ran
+2020-02-29 19:21:06 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-02-29 19:21:06 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-02-29 19:22:07 INFO  Log4j:16 - findById method in the Dao ran
+2020-03-04 10:29:39 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-04 10:29:39 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-04 10:31:39 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-04 10:31:39 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-04 11:22:12 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-04 11:22:12 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-04 11:32:54 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-04 11:32:54 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-06 10:41:40 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-06 10:41:40 INFO  Log4j:21 - findAll method in the Dao has been ran
+2020-03-06 11:54:56 INFO  Log4j:16 - All entries have been read (findAll)
+2020-03-06 11:54:56 INFO  Log4j:16 - All entries have been read (findAll)
+2020-03-06 11:54:56 INFO  Log4j:16 - All entries have been read (findAll)
+2020-03-06 11:54:56 INFO  Log4j:16 - All entries have been read (findAll)
+2020-03-06 13:25:49 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-06 13:43:21 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:43:21 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:44:12 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:44:12 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:44:16 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:44:16 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:44:45 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:44:45 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:46:08 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:46:08 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:47:39 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:47:39 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:47:41 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 13:47:41 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:02:24 INFO  Log4J:21 - A single entry has been read (findById)
+2020-03-06 15:04:14 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:04:14 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:11:44 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:11:44 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:11:44 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-06 15:11:44 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-06 15:25:40 INFO  Log4J:21 - A single entry has been read (findById)
+2020-03-06 15:26:49 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:26:49 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:26:49 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:26:49 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:27:35 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:27:35 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:27:35 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:27:35 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:28:05 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:28:05 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:28:06 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-06 15:28:06 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-06 15:28:06 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:28:06 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:30:21 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:30:21 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:30:21 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-06 15:30:21 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-06 15:30:21 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:30:21 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:30:21 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 15:30:21 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 16:19:35 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 16:19:35 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 16:19:35 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-06 16:19:35 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 13:54:58 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 13:54:58 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 13:54:59 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 13:54:59 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 14:00:48 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-10 14:00:49 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 14:00:49 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 14:40:47 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-10 14:40:48 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 14:40:48 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 14:41:05 INFO  Log4J:26 - A new entry has been inserted (insert)
+2020-03-10 14:41:06 INFO  Log4J:16 - All entries have been read (findAll)
+2020-03-10 14:41:06 INFO  Log4J:16 - All entries have been read (findAll)

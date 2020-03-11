@@ -12,11 +12,35 @@ public class BuildingService {
     @Autowired
     BuildingDao bd;
 
-    public void save(Building build) {
+    public Iterable<Building> findAll(){
+        return bd.findAll();
+    }
+
+    public Building findBuildingById(int id){
+        return bd.findById(id);
+    }
+
+    public void save(Building build){
         bd.save(build);
     }
 
-    public void delete(Building build) {
+    public void update(Building build){
+        bd.save(build);
+    }
+
+    // update by ID in case we need it
+    public void updateById(int id){
+        Building build = bd.findById(id);
+        bd.save(build);
+    }
+
+    public void delete(Building build){
+        bd.delete(build);
+    }
+
+    // delete by ID in case we need it
+    public void deleteById(int id){
+        Building build = bd.findById(id);
         bd.delete(build);
     }
 }

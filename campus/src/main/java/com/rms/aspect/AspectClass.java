@@ -6,6 +6,14 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+/** 
+ * @author 1912dec16 Java Fullstack Batch 
+ * <br>
+ * <br>
+ * The AspectClass handles the scattering issue with our logger. This enables us to implement the logger
+ * after certain controller methods are called and is achieved by using the point cut expression and JoinPoints. 
+ * The After annotation is used so that the logger will log information after these methods.
+ */
 @Component
 @Aspect
 public class AspectClass {

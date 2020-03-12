@@ -6,6 +6,13 @@ import com.rms.model.Campus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author 1912dec16 Java Fullstack Batch
+ * <br>
+ * <br>
+ * The CampusService class communicates with the CampusDao interface. It returns the appropriate objects
+ * and offers more descriptive method names.
+ */
 @Service
 public class CampusService {
 

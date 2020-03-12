@@ -8,6 +8,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author 1912dec16 Java Fullstack Batch
+ * <br>
+ * <br>
+ * The RoomService class communicates with the RoomDao interface. It returns the appropriate objects
+ * and offers more descriptive method names.
+ */
 @Service
 public class RoomService {
 

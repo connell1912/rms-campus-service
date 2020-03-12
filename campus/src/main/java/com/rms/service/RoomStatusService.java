@@ -9,6 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+/**
+ * @Author 1912dec16 Java Fullstack batch
+ * 
+ * 
+ * The RoomStatusService class provides the connections between the
+ *  RoomStatusDao and the RoomStatusController.  The RoomStatusDao is
+ *  wired by using the Autowired annotation.  It provides the connections
+ *  by calling the CRUD methods within the DAO layer and transferring them
+ *  to the Controller layer, and vice versa.  This is to provide the
+ *  necessary layer separation according to JEE2 specifications.
+ */
 public class RoomStatusService {
     
     @Autowired

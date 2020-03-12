@@ -12,6 +12,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author 1912dec16 Java Fullstack Batch
+ * <br>
+ * <br>
+ * The Amenity class defines our Amenity model. It utilizes JPA to be able to be persisted into our H2 databases
+ * and Lombok to have getters, setters, no/all args constructors through its annotations.
+ */
 @Entity
 @Table
 @Data

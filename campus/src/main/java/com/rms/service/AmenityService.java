@@ -6,6 +6,13 @@ import com.rms.model.Amenity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author 1912dec16 Java Fullstack Batch
+ * <br>
+ * <br>
+ * The AmenityService class communicates with the AmenityDao interface. It returns the appropriate objects
+ * and offers more descriptive method names.
+ */
 @Service
 public class AmenityService {
 

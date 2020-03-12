@@ -1,0 +1,7 @@
+organization=connell1912
+projectKey=connell1912_rms-campus-service
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.5143
+dashboardUrl=https://sonarcloud.io/dashboard?id=connell1912_rms-campus-service
+ceTaskId=AXCIrYJ0WMCVtdfU6zJp
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXCIrYJ0WMCVtdfU6zJp

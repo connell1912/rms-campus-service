@@ -19,6 +19,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ * @Author 1912dec16 Java Fullstack Batch
+ * 
+ * 
+ * The RoomStatusClass is a class that stores information about the current status of a room.
+ *  This is populated with boolean information that describes how the room has been left
+ *  so that orderliness can be kept track of on a regular basis, on a per-room basis.  It also
+ *  stores the timestamp of the most recent review of a room, as well as the person who
+ *  submitted the review.
+ */
 public class RoomStatus {
 
     @Id

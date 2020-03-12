@@ -17,6 +17,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/roomstatus")
 @CrossOrigin(origins = "http://localhost:3000")
+/**
+ * @Author 1912dec16 Java Fullstack Batch
+ * 
+ * 
+ * The RoomStatusController class communicates with our front end.
+ *  This class includes the annotations:
+ *      RestController to designate that this class will be using Restful communications
+ *      RequestMapping to map the request for our class
+ *      CrossOrigin to communicate through the port tied to the front end
+ *      Other Annotations which include mappings that are tied to specific HTTP methods and are
+ *          used to further describe the URL pattern for each method.
+ * 
+ *  The methods will handle HTTP requests differently and will display the appropriate
+ *  information once called.  This is achieved by communicating with the RoomStatusService
+ *  class which is wired using the Autowired annotation.
+ */
 public class RoomStatusController {
 
     @Autowired
